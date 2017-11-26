@@ -1,13 +1,14 @@
 /*!
- * endianness: Swap byte endianness in a array of bytes.
+ * endianness: Swap byte endianness in arrays.
  * Copyright (c) 2017 Rafael da Silva Rocha.
  * https://github.com/rochars/endianness
+ *
  */
 
 /**
- * Make the resulting byte array big endian or little endian.
+ * Swap the endianness of units of information in a array of bytes.
  * @param {!Array<number>|Uint8Array} bytes An array of bytes.
- * @param {number} offset The swap offset according to the bit depth.
+ * @param {number} offset The offset according to the bit depth.
  *  - 2 for 16-bit
  *  - 3 for 24-bit
  *  - 4 for 32-bit
@@ -26,7 +27,7 @@ function endianness(bytes, offset) {
 }
 
 /**
- * Swap the endianees of a unit of information in a array of bytes.
+ * Swap the endianness of a unit of information in a array of bytes.
  * @param {!Array<number>|Uint8Array} bytes An array of bytes.
  * @param {number} i The index to read.
  * @param {number} numBytes The number of bytes according to

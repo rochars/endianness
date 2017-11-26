@@ -1,7 +1,7 @@
 {
   "name": "endianness",
-  "version": "1.0.0",
-  "description": "Swap byte endianness in byte arrays.",
+  "version": "1.0.1",
+  "description": "Swap byte endianness in arrays.",
   "homepage": "https://github.com/rochars/endianness",
   "author": "Rafael da Silva Rocha <rocha.rafaelsilva@gmail.com>",
   "license": "MIT",
@@ -9,8 +9,9 @@
     "byte",
     "array",
     "Uint8Array",
-    "big endian",
-    "little endian",
+    "big-endian",
+    "little-endian",
+    "endian",
     "endianness",
     "swap"
   ],
