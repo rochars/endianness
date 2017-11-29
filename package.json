@@ -1,7 +1,7 @@
 {
   "name": "endianness",
-  "version": "1.0.1",
-  "description": "Swap byte endianness in arrays.",
+  "version": "2.0.0",
+  "description": "Swap endianness in byte arrays.",
   "homepage": "https://github.com/rochars/endianness",
   "author": "Rafael da Silva Rocha <rocha.rafaelsilva@gmail.com>",
   "license": "MIT",
@@ -24,7 +24,7 @@
     "test": "nyc ./node_modules/mocha/bin/_mocha --recursive",
     "coverage": "nyc report --reporter=lcov > coverage.lcov && codecov",
     "bundle": "webpack",
-    "compile": "google-closure-compiler-js dist/endianness.js > dist/endianness-min.js --compilationLevel ADVANCED",
+    "compile": "google-closure-compiler-js dist/endianness.js > dist/endianness-min.js --compilationLevel=ADVANCED",
     "doc": "./node_modules/.bin/jsdoc index.js -d docs",
     "qa": "npm run lint && npm run test",
     "pack": "npm run bundle && npm run compile && npm run doc",

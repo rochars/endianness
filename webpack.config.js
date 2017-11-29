@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2017 Rafael da Silva Rocha.
+ * https://github.com/rochars/endianness
+ *
+ */
+
 module.exports = {
   entry: './index.js',
   output: {
@@ -10,7 +16,6 @@ module.exports = {
         loader: 'string-replace-loader',
         query: {
           multiple: [
-            // to 
             {
               search: 'module.exports.endianness',
               replace: "window['endianness']",

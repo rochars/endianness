@@ -1,15 +1,15 @@
 # endianness
-Swap byte endianness in arrays.  
+Swap endianness in byte arrays.  
 Copyright (c) 2017 Rafael da Silva Rocha. MIT License.
 https://github.com/rochars/endianness
 
 [![Build Status](https://travis-ci.org/rochars/endianness.svg?branch=master)](https://travis-ci.org/rochars/endianness) [![Build status](https://ci.appveyor.com/api/projects/status/e5r0tc303hueqq8e?svg=true)](https://ci.appveyor.com/project/rochars/endianness) [![codecov](https://codecov.io/gh/rochars/endianness/branch/master/graph/badge.svg)](https://codecov.io/gh/rochars/endianness) [![NPM version](https://img.shields.io/npm/v/endianness.svg?style=flat)](https://www.npmjs.com/package/endianness) [![NPM downloads](https://img.shields.io/npm/dm/endianness.svg?style=flat)](https://www.npmjs.com/package/endianness)
 
-Swap byte endianness in a array of bytes. Works with any byte offset.
+Swap endianness in byte arrays. Works in Node.js and in the browser.
 
 Arguments can be **Array** and **Uint8Array**.
 
-For Node.js and the browser.
+The byte array is modified in-place.
 
 ## Install
 ```
@@ -34,13 +34,15 @@ endianness.endianness(
 ```javascript
 /**
  * Swap the endianness of units of information in a array of bytes.
+ * The original array is modified in-place.
  * @param {!Array<number>|Uint8Array} bytes An array of bytes.
- * @param {number} offset The offset according to the bit depth.
+ * @param {number} offset The byte offset according to the bit depth.
  *  - 2 for 16-bit
  *  - 3 for 24-bit
  *  - 4 for 32-bit
  *  - 5 for 40-bit
  *  - 6 for 48-bit
+ *  - 7 for 56-bit
  *  - 8 for 64-bit
  */
 function endianness(bytes, offset) {}
@@ -50,8 +52,8 @@ function endianness(bytes, offset) {}
 ```html
 <script src="endianness-min.js"></script>
 <script>
-    endianness([64, 9, 33, 251, 84, 68, 45, 24]);
-    //[24, 45, 68, 84, 251, 33, 9, 64]
+    endianness([64, 9, 33, 251, 84, 68, 45, 24], 8);
+    // returns [24, 45, 68, 84, 251, 33, 9, 64]
 </script>
 ```
 

@@ -104,7 +104,7 @@
     
 
     
-    <h4 class="name" id="byteSwap"><span class="type-signature"></span>byteSwap<span class="signature">(bytes, i, numBytes)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="byteSwap"><span class="type-signature"></span>byteSwap<span class="signature">(bytes, offset, index)</span><span class="type-signature"></span></h4>
     
 
     
@@ -112,191 +112,7 @@
 
 
 <div class="description">
-    Swap the endianness of a unit of information in a array of bytes.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>bytes</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">!Array.&lt;number></span>
-|
-
-<span class="param-type">Uint8Array</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">An array of bytes.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>i</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The index to read.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>numBytes</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The number of bytes according to     the bit depth of the data.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line36">line 36</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="endianness"><span class="type-signature"></span>endianness<span class="signature">(bytes, offset)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Swap the endianness of units of information in a array of bytes.
+    Swap the endianness of a unit of information in a array of bytes.The original array is modified in-place.
 </div>
 
 
@@ -374,7 +190,30 @@
 
             
 
-            <td class="description last">The offset according to the bit depth. - 2 for 16-bit - 3 for 24-bit - 4 for 32-bit - 5 for 40-bit - 6 for 48-bit - 8 for 64-bit</td>
+            <td class="description last">The number of bytes according to the bit depth.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The start index of the unit of information.</td>
         </tr>
 
     
@@ -415,7 +254,168 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line19">line 19</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line38">line 38</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="endianness"><span class="type-signature"></span>endianness<span class="signature">(bytes, offset)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Swap the endianness of units of information in a array of bytes.The original array is modified in-place.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>bytes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">!Array.&lt;number></span>
+|
+
+<span class="param-type">Uint8Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An array of bytes.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>offset</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The number of bytes according to the bit depth. - 2 for 16-bit - 3 for 24-bit - 4 for 32-bit - 5 for 40-bit - 6 for 48-bit - 7 for 56-bit - 8 for 64-bit</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line22">line 22</a>
     </li></ul></dd>
     
 
@@ -465,7 +465,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Nov 26 2017 20:11:39 GMT-0200 (Horário brasileiro de verão)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Nov 29 2017 12:11:43 GMT-0200 (Horário brasileiro de verão)
 </footer>
 
 <script> prettyPrint(); </script>
