@@ -7,10 +7,10 @@
  */
 
 /**
- * Swap the endianness of units of information in a array of bytes.
+ * Swap the endianness of units of information in a byte array.
  * The original array is modified in-place.
- * @param {!Array<number>|Uint8Array} bytes An array of bytes.
- * @param {number} offset The number of bytes according to the bit depth.
+ * @param {!Array<number>|!Array<string>|Uint8Array} bytes The bytes.
+ * @param {number} offset The byte offset according to the bit depth.
  *  - 2 for 16-bit
  *  - 3 for 24-bit
  *  - 4 for 32-bit
@@ -31,7 +31,7 @@ function endianness(bytes, offset) {
 /**
  * Swap the endianness of a unit of information in a array of bytes.
  * The original array is modified in-place.
- * @param {!Array<number>|Uint8Array} bytes An array of bytes.
+ * @param {!Array<number>|!Array<string>|Uint8Array} bytes The bytes.
  * @param {number} offset The number of bytes according to the bit depth.
  * @param {number} index The start index of the unit of information.
  */

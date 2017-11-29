@@ -1,15 +1,16 @@
 # endianness
 Swap endianness in byte arrays.  
 Copyright (c) 2017 Rafael da Silva Rocha.  
-https://github.com/rochars/endianness
+https://github.com/rochars/endianness  
 
-[![Build Status](https://travis-ci.org/rochars/endianness.svg?branch=master)](https://travis-ci.org/rochars/endianness) [![Build status](https://ci.appveyor.com/api/projects/status/e5r0tc303hueqq8e?svg=true)](https://ci.appveyor.com/project/rochars/endianness) [![codecov](https://codecov.io/gh/rochars/endianness/branch/master/graph/badge.svg)](https://codecov.io/gh/rochars/endianness) [![NPM version](https://img.shields.io/npm/v/endianness.svg?style=flat)](https://www.npmjs.com/package/endianness) [![NPM downloads](https://img.shields.io/npm/dm/endianness.svg?style=flat)](https://www.npmjs.com/package/endianness)
+[![Travis](https://img.shields.io/travis/rochars/endianness.svg?style=for-the-badge)](https://travis-ci.org/rochars/endianness) [![AppVeyor](https://img.shields.io/appveyor/ci/rochars/endianness.svg?style=for-the-badge&logo=appveyor)](https://ci.appveyor.com/project/rochars/endianness) [![Codecov](https://img.shields.io/codecov/c/github/rochars/endianness.svg?style=for-the-badge)](https://codecov.io/gh/rochars/endianness) [![NPM version](https://img.shields.io/npm/v/endianness.svg?style=for-the-badge)](https://www.npmjs.com/package/endianness)
 
-Swap endianness in byte arrays. Works in Node.js and in the browser.
+Swap endianness in byte arrays.
 
-Arguments can be **Array** and **Uint8Array**.
-
-The byte array is modified in-place.
+- Works in Node.js and in the browser
+- Arguments can be **Array<number>**, **Array<string>** and **Uint8Array**
+- Works with any byte offset
+- The byte array is modified in-place.
 
 ## Install
 ```
@@ -33,9 +34,9 @@ endianness.endianness(
 ## Use
 ```javascript
 /**
- * Swap the endianness of units of information in a array of bytes.
+ * Swap the endianness of units of information in a byte array.
  * The original array is modified in-place.
- * @param {!Array<number>|Uint8Array} bytes An array of bytes.
+ * @param {!Array<number>|!Array<string>|Uint8Array} bytes The bytes.
  * @param {number} offset The byte offset according to the bit depth.
  *  - 2 for 16-bit
  *  - 3 for 24-bit
