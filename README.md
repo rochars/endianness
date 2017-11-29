@@ -1,6 +1,6 @@
 # endianness
 Swap endianness in byte arrays.  
-Copyright (c) 2017 Rafael da Silva Rocha. MIT License.
+Copyright (c) 2017 Rafael da Silva Rocha.  
 https://github.com/rochars/endianness
 
 [![Build Status](https://travis-ci.org/rochars/endianness.svg?branch=master)](https://travis-ci.org/rochars/endianness) [![Build status](https://ci.appveyor.com/api/projects/status/e5r0tc303hueqq8e?svg=true)](https://ci.appveyor.com/project/rochars/endianness) [![codecov](https://codecov.io/gh/rochars/endianness/branch/master/graph/badge.svg)](https://codecov.io/gh/rochars/endianness) [![NPM version](https://img.shields.io/npm/v/endianness.svg?style=flat)](https://www.npmjs.com/package/endianness) [![NPM downloads](https://img.shields.io/npm/dm/endianness.svg?style=flat)](https://www.npmjs.com/package/endianness)
