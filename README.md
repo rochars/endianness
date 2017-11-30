@@ -8,9 +8,9 @@ https://github.com/rochars/endianness
 Swap endianness in byte arrays.
 
 - Works in Node.js and in the browser
-- Arguments can be **Array<number>**, **Array<string>** and **Uint8Array**
+- Works with **number arrays**, **string arrays** and **Uint8Array**
 - Works with any byte offset
-- The byte array is modified in-place.
+- The input array is modified in-place.
 
 ## Install
 ```
