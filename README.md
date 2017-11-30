@@ -22,13 +22,12 @@ npm install endianness
 const endianness = require("endianness");
 
 // Swap endianness of one 64-bit value:
-endianness.endianness([64, 9, 33, 251, 84, 68, 45, 24], 8);
-//[24, 45, 68, 84, 251, 33, 9, 64]
+endianness([64, 9, 33, 251, 84, 68, 45, 24], 8);
+// returns [24, 45, 68, 84, 251, 33, 9, 64]
 
 // Swap endianness of two 24-bit values:
-endianness.endianness(
-    ["00", "00", "80", "ff", "ff", "7f"], 3),
-//  ["80", "00", "00", "7f", "ff", "ff"]);
+endianness(["00", "00", "80", "ff", "ff", "7f"], 3),
+// returns ["80", "00", "00", "7f", "ff", "ff"];
 ```
 
 ## Use

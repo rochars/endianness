@@ -49,4 +49,4 @@ function byteSwap(bytes, offset, index) {
     }
 }
 
-module.exports.endianness = endianness;
+module.exports = endianness;
