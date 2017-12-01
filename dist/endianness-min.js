@@ -5,5 +5,5 @@
  https://github.com/rochars/endianness
 
 */
-(function(e){function b(a){if(d[a])return d[a].a;var c=d[a]={m:a,f:!1,a:{}};e[a].call(c.a,c,c.a,b);c.f=!0;return c.a}var d={};b.l=e;b.h=d;b.b=function(a,c){b.c(a)||Object.defineProperty(a,"a",{configurable:!1,enumerable:!0,get:c})};b.i=function(a){var c=a&&a.g?function(){return a["default"]}:function(){return a};b.b(c,c);return c};b.c=function(a){return Object.prototype.hasOwnProperty.call(a,"a")};b.j="";return b(b.o=0)})([function(){window.endianness=function(e,b){for(var d=e.length,a=0;a<d;){for(var c,
-f=e,g=a,h=0,k=b-1,l=parseInt(b/2,10);h<l;)c=f[g+h],f[g+h]=f[g+k],f[g+k]=c,h++,k--;a+=b}}}]);
+(function(e){function c(a){if(d[a])return d[a].a;var b=d[a]={m:a,f:!1,a:{}};e[a].call(b.a,b,b.a,c);b.f=!0;return b.a}var d={};c.l=e;c.h=d;c.b=function(a,b){c.c(a)||Object.defineProperty(a,"a",{configurable:!1,enumerable:!0,get:b})};c.i=function(a){var b=a&&a.g?function(){return a["default"]}:function(){return a};c.b(b,b);return b};c.c=function(a){return Object.prototype.hasOwnProperty.call(a,"a")};c.j="";return c(c.o=0)})([function(){window.endianness=function(e,c){for(var d=e.length,a=0;a<d;){for(var b=
+e,f=a,g=0,h=c-1,k=parseInt(c/2,10);g<k;){var l=b[f+g];b[f+g]=b[f+h];b[f+h]=l;g++;h--}a+=c}}}]);

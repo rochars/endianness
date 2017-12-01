@@ -101,11 +101,10 @@ function swap(bytes, offset, index) {
     let x = 0;
     let y = offset - 1;
     let limit = parseInt(offset / 2, 10);
-    let swap;
     while(x < limit) {
-        swap = bytes[index + x];
+        let theByte = bytes[index + x];
         bytes[index + x] = bytes[index + y];
-        bytes[index + y] = swap;
+        bytes[index + y] = theByte;
         x++;
         y--;
     }
