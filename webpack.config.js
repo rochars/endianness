@@ -17,8 +17,8 @@ module.exports = {
         query: {
           multiple: [
             {
-              search: 'module.exports',
-              replace: "window['endianness']",
+              search: 'module.exports = endianness',
+              replace: "window['endianness'] = endianness",
             }
           ]
         }

@@ -2,22 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Global</title>
+    <title>Global - Documentation</title>
 
-    <script src="scripts/prettify/prettify.js"> </script>
-    <script src="scripts/prettify/lang-css.js"> </script>
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
 </head>
-
 <body>
 
-<div id="main">
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
 
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#byteSwap">byteSwap</a></li><li><a href="global.html#endianness">endianness</a></li></ul>
+</nav>
+
+<div id="main">
+    
     <h1 class="page-title">Global</h1>
+    
 
     
 
@@ -28,7 +39,9 @@
 
 <header>
     
-        <h2></h2>
+        <h2>
+        
+        </h2>
         
     
 </header>
@@ -37,9 +50,6 @@
     <div class="container-overview">
     
         
-
-        
-
 
 <dl class="details">
 
@@ -77,6 +87,10 @@
 </dl>
 
 
+
+
+        
+
         
     
     </div>
@@ -87,9 +101,7 @@
 
     
 
-    
-
-    
+     
 
     
 
@@ -103,17 +115,62 @@
 
     
 
-    
     <h4 class="name" id="byteSwap"><span class="type-signature"></span>byteSwap<span class="signature">(bytes, offset, index)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line31">line 31</a>
+    </li></ul></dd>
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
 
 
 
 <div class="description">
-    Swap the endianness of a unit of information in a array of bytes.The original array is modified in-place.
+    Swap the endianness of a unit of information in a byte array.The original array is modified in-place.
 </div>
+
+
 
 
 
@@ -193,7 +250,7 @@
 
             
 
-            <td class="description last">The number of bytes according to the bit depth.</td>
+            <td class="description last">The number of bytes of the unit of information.</td>
         </tr>
 
     
@@ -228,53 +285,6 @@
 
 
 
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line38">line 38</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
 
 
 
@@ -290,17 +300,62 @@
 
     
 
-    
     <h4 class="name" id="endianness"><span class="type-signature"></span>endianness<span class="signature">(bytes, offset)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line15">line 15</a>
+    </li></ul></dd>
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
 
 
 
 <div class="description">
     Swap the endianness of units of information in a byte array.The original array is modified in-place.
 </div>
+
+
 
 
 
@@ -380,59 +435,12 @@
 
             
 
-            <td class="description last">The byte offset according to the bit depth. - 2 for 16-bit - 3 for 24-bit - 4 for 32-bit - 5 for 40-bit - 6 for 48-bit - 7 for 56-bit - 8 for 64-bit</td>
+            <td class="description last">The number of bytes of each unit of information.</td>
         </tr>
 
     
     </tbody>
 </table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line22">line 22</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
 
 
 
@@ -464,17 +472,13 @@
 
 </div>
 
-<nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#byteSwap">byteSwap</a></li><li><a href="global.html#endianness">endianness</a></li></ul>
-</nav>
-
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Nov 30 2017 00:48:20 GMT-0200 (Horário brasileiro de verão)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Dec 01 2017 14:39:52 GMT-0200 (Horário brasileiro de verão) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
-<script> prettyPrint(); </script>
-<script src="scripts/linenumber.js"> </script>
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
 </body>
 </html>

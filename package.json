@@ -1,6 +1,6 @@
 {
   "name": "endianness",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Swap endianness in byte arrays.",
   "homepage": "https://github.com/rochars/endianness",
   "author": "Rafael da Silva Rocha <rocha.rafaelsilva@gmail.com>",
@@ -13,7 +13,9 @@
     "little-endian",
     "endian",
     "endianness",
-    "swap"
+    "swap",
+    "binary",
+    "network order"
   ],
   "repository": {
     "type": "git",
@@ -25,13 +27,14 @@
     "coverage": "nyc report --reporter=lcov > coverage.lcov && codecov",
     "bundle": "webpack",
     "compile": "google-closure-compiler-js dist/endianness.js > dist/endianness-min.js --compilationLevel=ADVANCED",
-    "doc": "./node_modules/.bin/jsdoc index.js -d docs",
+    "doc": "./node_modules/.bin/jsdoc index.js -d docs -r README.md -t node_modules/docdash",
     "qa": "npm run lint && npm run test",
     "pack": "npm run bundle && npm run compile && npm run doc",
     "build": "npm run qa && npm run pack"
   },
   "devDependencies": {
     "codecov": "^3.0.0",
+    "docdash": "^0.4.0",
     "google-closure-compiler-js": "^20170910.0.1",
     "jsdoc": "~3.5.5",
     "jshint": "^2.9.5",

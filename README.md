@@ -3,13 +3,14 @@ Swap endianness in byte arrays.
 Copyright (c) 2017 Rafael da Silva Rocha.  
 https://github.com/rochars/endianness  
 
-[![Travis](https://img.shields.io/travis/rochars/endianness.svg?style=for-the-badge)](https://travis-ci.org/rochars/endianness) [![AppVeyor](https://img.shields.io/appveyor/ci/rochars/endianness.svg?style=for-the-badge&logo=appveyor)](https://ci.appveyor.com/project/rochars/endianness) [![Codecov](https://img.shields.io/codecov/c/github/rochars/endianness.svg?style=for-the-badge)](https://codecov.io/gh/rochars/endianness) [![NPM version](https://img.shields.io/npm/v/endianness.svg?style=for-the-badge)](https://www.npmjs.com/package/endianness)
+[![NPM version](https://img.shields.io/npm/v/endianness.svg?style=for-the-badge)](https://www.npmjs.com/package/endianness) [![Docs](https://img.shields.io/badge/docs-online-blue.svg?style=for-the-badge)](https://rochars.github.io/endianness/index.html)
 
 Swap endianness in byte arrays.
 
 - Works in Node.js and in the browser
-- Works with **number arrays**, **string arrays** and **Uint8Array**
+- Works with **Array** and **Uint8Array**
 - Works with any byte offset
+- Bytes can be represented as strings
 - The input array is modified in-place.
 
 ## Install
@@ -36,14 +37,7 @@ endianness(["00", "00", "80", "ff", "ff", "7f"], 3),
  * Swap the endianness of units of information in a byte array.
  * The original array is modified in-place.
  * @param {!Array<number>|!Array<string>|Uint8Array} bytes The bytes.
- * @param {number} offset The byte offset according to the bit depth.
- *  - 2 for 16-bit
- *  - 3 for 24-bit
- *  - 4 for 32-bit
- *  - 5 for 40-bit
- *  - 6 for 48-bit
- *  - 7 for 56-bit
- *  - 8 for 64-bit
+ * @param {number} offset The number of bytes of each unit of information.
  */
 function endianness(bytes, offset) {}
 ```

@@ -10,14 +10,7 @@
  * Swap the endianness of units of information in a byte array.
  * The original array is modified in-place.
  * @param {!Array<number>|!Array<string>|Uint8Array} bytes The bytes.
- * @param {number} offset The byte offset according to the bit depth.
- *  - 2 for 16-bit
- *  - 3 for 24-bit
- *  - 4 for 32-bit
- *  - 5 for 40-bit
- *  - 6 for 48-bit
- *  - 7 for 56-bit
- *  - 8 for 64-bit
+ * @param {number} offset The number of bytes of each unit of information.
  */
 function endianness(bytes, offset) {
     let len = bytes.length;
@@ -29,10 +22,10 @@ function endianness(bytes, offset) {
 }
 
 /**
- * Swap the endianness of a unit of information in a array of bytes.
+ * Swap the endianness of a unit of information in a byte array.
  * The original array is modified in-place.
  * @param {!Array<number>|!Array<string>|Uint8Array} bytes The bytes.
- * @param {number} offset The number of bytes according to the bit depth.
+ * @param {number} offset The number of bytes of the unit of information.
  * @param {number} index The start index of the unit of information.
  */
 function byteSwap(bytes, offset, index) {
