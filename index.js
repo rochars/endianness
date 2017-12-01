@@ -16,7 +16,7 @@ function endianness(bytes, offset) {
     let len = bytes.length;
     let i = 0;
     while (i < len) {
-        byteSwap(bytes, offset, i);
+        swap(bytes, offset, i);
         i += offset;
     }
 }
@@ -28,7 +28,7 @@ function endianness(bytes, offset) {
  * @param {number} offset The number of bytes of the unit of information.
  * @param {number} index The start index of the unit of information.
  */
-function byteSwap(bytes, offset, index) {
+function swap(bytes, offset, index) {
     let x = 0;
     let y = offset - 1;
     let limit = parseInt(offset / 2, 10);
