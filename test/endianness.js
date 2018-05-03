@@ -8,8 +8,8 @@ var assert = require('assert');
 
 describe('little endiand and big endian swap', function() {
     
-    const endianness = require('../index.js');
-
+    const endianness = require("../test/loader.js");
+    
     // 16-bit
     it('should swap 2 16-bit unsigned ints (0s)', function() {
         values = [0, 0, 0, 0];
