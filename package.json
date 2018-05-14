@@ -1,6 +1,6 @@
 {
   "name": "endianness",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Swap endianness in byte arrays.",
   "homepage": "https://github.com/rochars/endianness",
   "author": "Rafael da Silva Rocha <rocha.rafaelsilva@gmail.com>",
@@ -15,7 +15,8 @@
     "endianness",
     "swap",
     "binary",
-    "network order"
+    "network order",
+    "browser"
   ],
   "repository": {
     "type": "git",
@@ -28,7 +29,8 @@
     "coverage": "nyc report --reporter=lcov > coverage.lcov && codecov",
     "doc": "./node_modules/.bin/jsdoc index.js -d docs -r README.md -t node_modules/docdash",
     "pack": "webpack && npm run test-dist",
-    "build": "npm run lint && npm run pack && npm test && npm run doc"
+    "build": "npm run lint && npm test && npm run pack && npm run doc",
+    "build-ci": "npm run lint && npm run pack && npm test && npm run doc"
   },
   "devDependencies": {
     "browser-env": "^3.2.5",

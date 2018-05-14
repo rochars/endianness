@@ -5,13 +5,10 @@ https://github.com/rochars/endianness
 
 [![NPM version](https://img.shields.io/npm/v/endianness.svg?style=for-the-badge)](https://www.npmjs.com/package/endianness) [![Docs](https://img.shields.io/badge/docs-online-blue.svg?style=for-the-badge)](https://rochars.github.io/endianness/index.html)
 
-Swap endianness in byte arrays.
+Swap endianness in byte arrays. The input array is modified in-place.
 
 - Works in Node.js and in the browser
-- Works with **Array** and **Uint8Array**
 - Works with any byte offset
-- Bytes can be represented as strings
-- The input array is modified in-place.
 
 ## Install
 ```
