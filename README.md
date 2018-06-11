@@ -15,6 +15,21 @@ Swap endianness in byte arrays. The input array is modified in-place.
 npm install endianness
 ```
 
+## Browser
+Use the compiled file in the */dist* folder:
+```html
+<script src="endianness-min.js"></script>
+<script>
+    endianness([64, 9, 33, 251, 84, 68, 45, 24], 8);
+    // returns [24, 45, 68, 84, 251, 33, 9, 64]
+</script>
+```
+
+Or get it from the [jsDelivr](https://www.jsdelivr.com) CDN:
+```html
+<script src="https://cdn.jsdelivr.net/npm/endianness@3.0.4"></script>
+```
+
 ## Example
 ```javascript
 const endianness = require("endianness");
@@ -28,7 +43,7 @@ endianness(["00", "00", "80", "ff", "ff", "7f"], 3),
 // returns ["80", "00", "00", "7f", "ff", "ff"];
 ```
 
-## Use
+## API
 ```javascript
 /**
  * Swap the endianness of units of information in a byte array.
@@ -37,15 +52,6 @@ endianness(["00", "00", "80", "ff", "ff", "7f"], 3),
  * @param {number} offset The number of bytes of each unit of information.
  */
 function endianness(bytes, offset) {}
-```
-
-## Browser
-```html
-<script src="endianness-min.js"></script>
-<script>
-    endianness([64, 9, 33, 251, 84, 68, 45, 24], 8);
-    // returns [24, 45, 68, 84, 251, 33, 9, 64]
-</script>
 ```
 
 ## LICENSE
