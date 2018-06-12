@@ -25,6 +25,11 @@ Use the compiled file in the */dist* folder:
 </script>
 ```
 
+Or get it from the [jsDelivr](https://www.jsdelivr.com) CDN:
+```html
+<script src="https://cdn.jsdelivr.net/npm/endianness@4.0.0"></script>
+```
+
 ## Example
 ```javascript
 const endianness = require("endianness");
