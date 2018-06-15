@@ -49,11 +49,10 @@ console.log(bytes);
 ## API
 ```javascript
 /**
- * Swap the endianness of units of information in a byte array.
- * The original array is modified in place.
+ * Swap the byte ordering in a buffer. The buffer is modified in place.
  * @param {!Array<number|string>|!Uint8Array} bytes The bytes.
- * @param {number} offset The number of bytes of each unit of information.
- * @throws {Error} If the byte array length is not valid.
+ * @param {number} offset The byte offset.
+ * @throws {Error} If the buffer length is not valid.
  */
 function endianness(bytes, offset) {}
 ```
