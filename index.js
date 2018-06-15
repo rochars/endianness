@@ -33,6 +33,9 @@
  */
 function endianness(bytes, offset) {
     let len = bytes.length;
+    if (len % offset) {
+        throw new Error("Not enough bytes.");
+    }
     let i = 0;
     while (i < len) {
         swap(bytes, offset, i);

@@ -5,11 +5,20 @@
  */
 
 var assert = require('assert');
+const expect = require("chai").expect;
 
 describe('little endiand and big endian swap', function() {
     
     const endianness = require("../test/loader.js");
     
+    // Errors
+    it("should throw an error if input do not have enought bytes", function () {
+        expect(function() {
+            values = [1, 2, 3, 4,  5, 6, 7, 8,   9, 10];
+            endianness(values, 4);
+        }).to.throw("Not enough bytes.");
+    });
+
     // 16-bit
     it('should swap 2 16-bit unsigned ints (0s)', function() {
         values = [0, 0, 0, 0];
