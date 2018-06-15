@@ -1,22 +1,19 @@
 {
   "name": "endianness",
-  "version": "5.0.0-alpha.4",
+  "version": "5.0.0",
   "description": "Swap endianness in byte arrays.",
   "homepage": "https://github.com/rochars/endianness",
-  "author": "Rafael da Silva Rocha <rocha.rafaelsilva@gmail.com>",
+  "author": "Rafael S. Rocha <rocha.rafaelsilva@gmail.com>",
   "license": "MIT",
   "keywords": [
+    "binary",
     "byte",
+    "swap",
     "array",
-    "Uint8Array",
+    "endianness",
     "big-endian",
     "little-endian",
-    "endian",
-    "endianness",
-    "swap",
-    "binary",
-    "network order",
-    "browser"
+    "network order"
   ],
   "repository": {
     "type": "git",
