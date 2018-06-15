@@ -7,7 +7,9 @@ const ClosureCompiler = require('google-closure-compiler-js').webpack;
 module.exports = {
   entry: './index.js',
   output: {
-    filename: './dist/endianness-min.js'
+    filename: './dist/endianness.min.js',
+    library: "endianness",
+    libraryTarget: "window",
   },
   plugins: [
     new ClosureCompiler({
@@ -18,21 +20,5 @@ module.exports = {
         warningLevel: "VERBOSE"
       }
     })
-  ],
-  module: {
-    loaders: [
-      {
-        test:  /index\.js$/,
-        loader: 'string-replace-loader',
-        query: {
-          multiple: [
-            {
-              search: 'module.exports = endianness',
-              replace: "window['endianness'] = endianness",
-            }
-          ]
-        }
-      }
-    ]
-  }
+  ]
 };

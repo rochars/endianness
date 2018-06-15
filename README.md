@@ -18,7 +18,7 @@ npm install endianness
 ## Browser
 Use the compiled file in the */dist* folder:
 ```html
-<script src="endianness-min.js"></script>
+<script src="endianness.min.js"></script>
 <script>
     endianness([64, 9, 33, 251, 84, 68, 45, 24], 8);
     // returns [24, 45, 68, 84, 251, 33, 9, 64]
@@ -27,7 +27,7 @@ Use the compiled file in the */dist* folder:
 
 Or get it from the [jsDelivr](https://www.jsdelivr.com) CDN:
 ```html
-<script src="https://cdn.jsdelivr.net/npm/endianness@4.0.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/endianness@5"></script>
 ```
 
 ## Example

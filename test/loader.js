@@ -4,12 +4,14 @@
  *
  */
 
-let endianness = require('../index.js');
+let endianness;
 
 if (process.argv[3] == '--dist') {
-    require('browser-env')();let assert = require('assert');
-    require('../dist/endianness-min.js');
+    require('browser-env')();
+    require('../dist/endianness.min.js');
     endianness = window.endianness;
+} else {
+	endianness = require('../index.js');
 }
 
 module.exports = endianness;
