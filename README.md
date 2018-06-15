@@ -2,7 +2,7 @@
 Copyright (c) 2017-2018 Rafael da Silva Rocha.  
 https://github.com/rochars/endianness  
 
-[![NPM version](https://img.shields.io/npm/v/endianness.svg?style=for-the-badge)](https://www.npmjs.com/package/endianness) [![Docs](https://img.shields.io/badge/docs-online-blue.svg?style=for-the-badge)](https://rochars.github.io/endianness/index.html)
+[![NPM version](https://img.shields.io/npm/v/endianness.svg?style=for-the-badge)](https://www.npmjs.com/package/endianness) [![Docs](https://img.shields.io/badge/docs-online-blue.svg?style=for-the-badge)](https://rochars.github.io/endianness/index.html)  
 [![Codecov](https://img.shields.io/codecov/c/github/rochars/endianness.svg?style=flat-square)](https://codecov.io/gh/rochars/endianness) [![Unix Build](https://img.shields.io/travis/rochars/endianness.svg?style=flat-square)](https://travis-ci.org/rochars/endianness) [![Windows Build](https://img.shields.io/appveyor/ci/rochars/endianness.svg?style=flat-square&logo=appveyor)](https://ci.appveyor.com/project/rochars/endianness) [![Scrutinizer](https://img.shields.io/scrutinizer/g/rochars/endianness.svg?style=flat-square&logo=scrutinizer)](https://scrutinizer-ci.com/g/rochars/endianness/)
 
 Swap endianness in byte arrays. The input array is modified in-place.
@@ -20,8 +20,9 @@ Use the compiled file in the */dist* folder:
 ```html
 <script src="endianness.min.js"></script>
 <script>
-    endianness([64, 9, 33, 251, 84, 68, 45, 24], 8);
-    // returns [24, 45, 68, 84, 251, 33, 9, 64]
+    var bytes = [64, 9, 33, 251, 84, 68, 45, 24]; 
+    endianness(bytes, 8);
+    console.log(bytes);
 </script>
 ```
 
@@ -35,21 +36,24 @@ Or get it from the [jsDelivr](https://www.jsdelivr.com) CDN:
 const endianness = require("endianness");
 
 // Swap endianness of one 64-bit value:
-endianness([64, 9, 33, 251, 84, 68, 45, 24], 8);
-// returns [24, 45, 68, 84, 251, 33, 9, 64]
+bytes = [64, 9, 33, 251, 84, 68, 45, 24];
+endianness(bytes, 8);
+console.log(bytes);
 
 // Swap endianness of two 24-bit values:
-endianness(["00", "00", "80", "ff", "ff", "7f"], 3),
-// returns ["80", "00", "00", "7f", "ff", "ff"];
+bytes = ["00", "00", "80", "ff", "ff", "7f"];
+endianness(bytes, 3),
+console.log(bytes);
 ```
 
 ## API
 ```javascript
 /**
  * Swap the endianness of units of information in a byte array.
- * The original array is modified in-place.
- * @param {!Array<number>|!Array<string>|Uint8Array} bytes The bytes.
+ * The original array is modified in place.
+ * @param {!Array<number|string>|!Uint8Array} bytes The bytes.
  * @param {number} offset The number of bytes of each unit of information.
+ * @throws {Error} If the byte array length is not valid.
  */
 function endianness(bytes, offset) {}
 ```

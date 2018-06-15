@@ -30,6 +30,7 @@
  * The original array is modified in place.
  * @param {!Array<number|string>|!Uint8Array} bytes The bytes.
  * @param {number} offset The number of bytes of each unit of information.
+ * @throws {Error} If the byte array length is not valid.
  */
 function endianness(bytes, offset) {
     let len = bytes.length;

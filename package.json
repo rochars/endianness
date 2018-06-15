@@ -1,6 +1,6 @@
 {
   "name": "endianness",
-  "version": "5.0.0-alpha.3",
+  "version": "5.0.0-alpha.4",
   "description": "Swap endianness in byte arrays.",
   "homepage": "https://github.com/rochars/endianness",
   "author": "Rafael da Silva Rocha <rocha.rafaelsilva@gmail.com>",
