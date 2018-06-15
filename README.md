@@ -1,9 +1,9 @@
 # endianness
-Swap endianness in byte arrays.  
-Copyright (c) 2017 Rafael da Silva Rocha.  
+Copyright (c) 2017-2018 Rafael da Silva Rocha.  
 https://github.com/rochars/endianness  
 
 [![NPM version](https://img.shields.io/npm/v/endianness.svg?style=for-the-badge)](https://www.npmjs.com/package/endianness) [![Docs](https://img.shields.io/badge/docs-online-blue.svg?style=for-the-badge)](https://rochars.github.io/endianness/index.html)
+[![Codecov](https://img.shields.io/codecov/c/github/rochars/endianness.svg?style=flat-square)](https://codecov.io/gh/rochars/endianness) [![Unix Build](https://img.shields.io/travis/rochars/endianness.svg?style=flat-square)](https://travis-ci.org/rochars/endianness) [![Windows Build](https://img.shields.io/appveyor/ci/rochars/endianness.svg?style=flat-square&logo=appveyor)](https://ci.appveyor.com/project/rochars/endianness) [![Scrutinizer](https://img.shields.io/scrutinizer/g/rochars/endianness.svg?style=flat-square&logo=scrutinizer)](https://scrutinizer-ci.com/g/rochars/endianness/)
 
 Swap endianness in byte arrays. The input array is modified in-place.
 
@@ -27,7 +27,7 @@ Use the compiled file in the */dist* folder:
 
 Or get it from the [jsDelivr](https://www.jsdelivr.com) CDN:
 ```html
-<script src="https://cdn.jsdelivr.net/npm/endianness@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/endianness@5/dist/endianness.min.js"></script>
 ```
 
 ## Example
@@ -55,7 +55,7 @@ function endianness(bytes, offset) {}
 ```
 
 ## LICENSE
-Copyright (c) 2017 Rafael da Silva Rocha.
+Copyright (c) 2017-2018 Rafael da Silva Rocha.
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
