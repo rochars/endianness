@@ -6,12 +6,15 @@
 
 let endianness;
 
-if (process.argv[3] == '--dist') {
+// Browser dist
+if (process.argv[3] == '--browser') {
     require('browser-env')();
     require('../dist/endianness.min.js');
     endianness = window.endianness;
+
+// UMD
 } else {
-	endianness = require('../index.js');
+	endianness = require('../dist/endianness.umd.js').endianness;
 }
 
 module.exports = endianness;

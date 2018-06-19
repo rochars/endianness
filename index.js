@@ -26,12 +26,20 @@
  */
 
 /**
+ * @fileoverview A function to swap endianness in byte buffers.
+ */
+
+/**
+ * @module endianness
+ */
+
+/**
  * Swap the byte ordering in a buffer. The buffer is modified in place.
  * @param {!Array<number|string>|!Uint8Array} bytes The bytes.
  * @param {number} offset The byte offset.
  * @throws {Error} If the buffer length is not valid.
  */
-function endianness(bytes, offset) {
+export function endianness(bytes, offset) {
     let len = bytes.length;
     if (len % offset) {
         throw new Error("Not enough bytes.");
@@ -62,5 +70,3 @@ function swap(bytes, offset, index) {
         y--;
     }
 }
-
-module.exports = endianness;
