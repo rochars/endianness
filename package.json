@@ -1,15 +1,15 @@
 {
   "name": "endianness",
-  "version": "6.0.0-alpha.1",
+  "version": "6.0.0-alpha.2",
   "description": "Swap endianness in byte arrays.",
   "homepage": "https://github.com/rochars/endianness",
   "author": "Rafael S. Rocha <rocha.rafaelsilva@gmail.com>",
   "license": "MIT",
-  "main": "./dist/wavefile.cjs.js",
+  "main": "./dist/endianness.cjs.js",
   "module": "./index.js",
-  "browser": "./dist/wavefile.umd.js",
-  "jsdelivr": "./dist/wavefile.min.js",
-  "unpkg": "./dist/wavefile.min.js",
+  "browser": "./dist/endianness.umd.js",
+  "jsdelivr": "./dist/endianness.min.js",
+  "unpkg": "./dist/endianness.min.js",
   "engines": {
     "node": ">=7"
   },
