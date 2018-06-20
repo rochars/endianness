@@ -186,7 +186,7 @@ describe('little endiand and big endian swap', function() {
     it('should swap 3 64-bit values', function() {
         values = [24, 45, 68, 84, 251, 33, 9, 64,
              68, 24, 45, 84, 251, 33, 9, 64,
-             24, 45, 68, 84, 33, 9, 251, 64]
+             24, 45, 68, 84, 33, 9, 251, 64];
         endianness(values, 8);
         assert.deepEqual(values,
             [64, 9, 33, 251, 84, 68, 45, 24,
