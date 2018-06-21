@@ -10,7 +10,7 @@ let endianness;
 if (process.argv[3] == '--min') {
     require('browser-env')();
     require('../dist/endianness.min.js');
-    endianness = window.endianness.endianness;
+    endianness = window.endianness;
 
 // UMD bundle
 } else if (process.argv[3] == '--umd') {

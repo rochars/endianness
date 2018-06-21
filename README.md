@@ -15,6 +15,21 @@ Swap endianness in byte arrays. The input array is modified in-place.
 npm install endianness
 ```
 
+## Example
+```javascript
+const endianness = require("endianness").endianness;
+
+// Swap endianness of one 64-bit value:
+bytes = [64, 9, 33, 251, 84, 68, 45, 24];
+endianness(bytes, 8);
+console.log(bytes);
+
+// Swap endianness of two 24-bit values:
+bytes = ["00", "00", "80", "ff", "ff", "7f"];
+endianness(bytes, 3),
+console.log(bytes);
+```
+
 ## Browser
 Use the compiled file in the */dist* folder:
 ```html
@@ -28,22 +43,12 @@ Use the compiled file in the */dist* folder:
 
 Or get it from the [jsDelivr](https://www.jsdelivr.com) CDN:
 ```html
-<script src="https://cdn.jsdelivr.net/npm/endianness@5/dist/endianness.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/endianness@6"></script>
 ```
 
-## Example
-```javascript
-const endianness = require("endianness");
-
-// Swap endianness of one 64-bit value:
-bytes = [64, 9, 33, 251, 84, 68, 45, 24];
-endianness(bytes, 8);
-console.log(bytes);
-
-// Swap endianness of two 24-bit values:
-bytes = ["00", "00", "80", "ff", "ff", "7f"];
-endianness(bytes, 3),
-console.log(bytes);
+Or get it from [unpkg](https://www.unpkg.com):
+```html
+<script src="https://unpkg.com/endianness@6"></script>
 ```
 
 ## API
@@ -52,9 +57,11 @@ console.log(bytes);
  * Swap the byte ordering in a buffer. The buffer is modified in place.
  * @param {!Array<number|string>|!Uint8Array} bytes The bytes.
  * @param {number} offset The byte offset.
+ * @param {number=} start The start index. Assumes 0.
+ * @param {?number=} end The end index. Assumes the buffer length.
  * @throws {Error} If the buffer length is not valid.
  */
-function endianness(bytes, offset) {}
+export function endianness(bytes, offset, start=0, end=null) {}
 ```
 
 ## LICENSE

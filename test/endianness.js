@@ -16,7 +16,7 @@ describe('little endiand and big endian swap', function() {
         expect(function() {
             values = [1, 2, 3, 4,  5, 6, 7, 8,   9, 10];
             endianness(values, 4);
-        }).to.throw("Not enough bytes.");
+        }).to.throw("Bad buffer length.");
     });
 
     // 16-bit

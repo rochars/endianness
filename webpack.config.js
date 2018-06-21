@@ -65,7 +65,8 @@ module.exports = [
           compilationLevel: 'ADVANCED',
           warningLevel: 'VERBOSE',
           exportLocalPropertyDefinitions: true,
-          generateExports: true
+          generateExports: true,
+          outputWrapper: '%output%window["endianness"]=window["endianness"]["endianness"];'
         },
       })
     ]
