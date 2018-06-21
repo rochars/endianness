@@ -5,7 +5,7 @@ https://github.com/rochars/endianness
 [![NPM version](https://img.shields.io/npm/v/endianness.svg?style=for-the-badge)](https://www.npmjs.com/package/endianness) [![Docs](https://img.shields.io/badge/docs-online-blue.svg?style=for-the-badge)](https://rochars.github.io/endianness/index.html)  
 [![Codecov](https://img.shields.io/codecov/c/github/rochars/endianness.svg?style=flat-square)](https://codecov.io/gh/rochars/endianness) [![Unix Build](https://img.shields.io/travis/rochars/endianness.svg?style=flat-square)](https://travis-ci.org/rochars/endianness) [![Windows Build](https://img.shields.io/appveyor/ci/rochars/endianness.svg?style=flat-square&logo=appveyor)](https://ci.appveyor.com/project/rochars/endianness) [![Scrutinizer](https://img.shields.io/scrutinizer/g/rochars/endianness.svg?style=flat-square&logo=scrutinizer)](https://scrutinizer-ci.com/g/rochars/endianness/)
 
-Swap endianness in byte arrays. The input array is modified in-place.
+Swap endianness in byte arrays. The input buffer is modified in-place.
 
 - Works everywhere, server and browser
 - Works with any byte offset
@@ -68,11 +68,11 @@ export function endianness(bytes, offset, start=0, end=null) {}
 ## Distribution
 This library is implemented as a ES6 module and also distributed as a CommonJS module, UMD module and a compiled script for browsers. If your system does not pick one automatically for you, you can pick one in the **dist/** folder.
 - The CommonJS is the one used by Node. It is served in the "main" field of this library's package.json
-- The UMD module is compatible with Node, AMD and brosers. It is served in the "browser" field.
+- The UMD module is compatible with Node, AMD and browsers. It is served in the "browser" field.
 - The compiled dist is browser-only and should be the one served by CDNs.
-- The "module" field points to "./main.js" and should be the default entry point.
+- The "module" field points to "./index.js" and should be the default entry point.
 
-If you are using a module bundler to compile a module that depends on **endianness** you might need to specify what is the correct entry point, as some bundlers will assume "browser". In general, you should point to "module".
+If you are using a module bundler to compile a module that depends on **endianness** you might need to specify what is the correct entry point as some bundlers will assume "browser". In general, you should point to "module".
 
 ### webpack example:
 ```javascript
