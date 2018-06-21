@@ -32,16 +32,18 @@
   },
   "scripts": {
     "lint": "jshint index.js && jshint test",
-    "test": "node -r esm ./node_modules/mocha/bin/_mocha --recursive -R nyc -R min && npm run coverage-text",
+    "test": "node -r esm ./node_modules/mocha/bin/_mocha --recursive -R nyc -R min && npm run cr",
+    "test-esm": "node -r esm ./node_modules/mocha/bin/_mocha --recursive -R nyc -R min && npm run coverage",
     "test-min": "node ./node_modules/mocha/bin/_mocha test --min --recursive -R min",
     "test-cjs": "node ./node_modules/mocha/bin/_mocha test --cjs --recursive -R min",
     "test-umd": "node ./node_modules/mocha/bin/_mocha test --umd --recursive -R min",
     "test-dist": "npm run test-min && npm run test-cjs && npm run test-umd",
     "coverage": "nyc report --reporter=lcov > coverage.lcov && codecov",
-    "pack": "npm test && webpack && npm run test-dist",
+    "pack": "npm run test-esm && webpack && npm run test-dist",
     "doc": "./node_modules/.bin/jsdoc index.js -d docs -r README.md -t node_modules/docdash",
     "build": "npm run lint && npm run pack && npm run doc",
-    "coverage-text": "nyc report --reporter text"
+    "build-test": "npm run lint && npm run test && webpack && npm run test-dist && npm run doc",
+    "cr": "nyc report --reporter text"
   },
   "devDependencies": {
     "browser-env": "^3.2.5",
