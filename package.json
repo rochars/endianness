@@ -1,6 +1,6 @@
 {
   "name": "endianness",
-  "version": "6.0.0-alpha.3",
+  "version": "6.0.0-alpha.4",
   "description": "Swap endianness in byte arrays.",
   "homepage": "https://github.com/rochars/endianness",
   "author": "Rafael S. Rocha <rocha.rafaelsilva@gmail.com>",
@@ -21,7 +21,7 @@
     "endianness",
     "big-endian",
     "little-endian",
-    "network order"
+    "network-order"
   ],
   "repository": {
     "type": "git",
@@ -32,13 +32,14 @@
   },
   "scripts": {
     "lint": "jshint index.js && jshint test",
-    "test": "node -r esm ./node_modules/mocha/bin/_mocha test --recursive",
-    "test-min": "nyc ./node_modules/mocha/bin/_mocha test --min --recursive",
-    "test-cjs": "nyc ./node_modules/mocha/bin/_mocha test --cjs --recursive",
-    "test-umd": "nyc ./node_modules/mocha/bin/_mocha test --umd --recursive",
+    "test": "nyc ./node_modules/mocha/bin/_mocha --require esm --recursive",
+    "test-min": "node ./node_modules/mocha/bin/_mocha test --min --recursive --reporter dot",
+    "test-cjs": "node ./node_modules/mocha/bin/_mocha test --cjs --recursive --reporter dot",
+    "test-umd": "node ./node_modules/mocha/bin/_mocha test --umd --recursive --reporter dot",
+    "test-dist": "npm run test-min && npm run test-cjs && npm run test-umd",
     "coverage": "nyc report --reporter=lcov > coverage.lcov && codecov",
+    "pack": "npm test && webpack && npm run test-dist",
     "doc": "./node_modules/.bin/jsdoc index.js -d docs -r README.md -t node_modules/docdash",
-    "pack": "npm test && webpack && npm run test-min && npm run test-cjs && npm run test-umd",
     "build": "npm run lint && npm run pack && npm run doc"
   },
   "devDependencies": {
@@ -53,6 +54,6 @@
     "mocha": "^3.5.3",
     "mocha-lcov-reporter": "^1.3.0",
     "nyc": "^3.2.2",
-    "webpack": "^3.8.0"
+    "webpack": "^3.12.0"
   }
 }

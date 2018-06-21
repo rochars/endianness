@@ -7,8 +7,9 @@ https://github.com/rochars/endianness
 
 Swap endianness in byte arrays. The input array is modified in-place.
 
-- Works in Node.js and in the browser
+- Works everywhere, server and browser
 - Works with any byte offset
+- Can swap only a part of the buffer
 
 ## Install
 ```
@@ -62,6 +63,28 @@ Or get it from [unpkg](https://www.unpkg.com):
  * @throws {Error} If the buffer length is not valid.
  */
 export function endianness(bytes, offset, start=0, end=null) {}
+```
+
+## Distribution
+This library is implemented as a ES6 module and also distributed as a CommonJS module, UMD module and a compiled script for browsers. If your system does not pick one automatically for you, you can pick one in the **dist/** folder.
+- The CommonJS is the one used by Node. It is served in the "main" field of this library's package.json
+- The UMD module is compatible with Node, AMD and brosers. It is served in the "browser" field.
+- The compiled dist is browser-only and should be the one served by CDNs.
+- The "module" field points to "./main.js" and should be the default entry point.
+
+If you are using a module bundler to compile a module that depends on **endianness** you might need to specify what is the correct entry point, as some bundlers will assume "browser". In general, you should point to "module".
+
+### webpack example:
+```javascript
+module.exports = {
+  entry: './index.js',
+  resolve: {
+    // tells webpack to use 'module' or 'main'
+    // not 'browser'
+    mainFields: ['module', 'main']
+  },
+  ...
+};
 ```
 
 ## LICENSE

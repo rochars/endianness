@@ -7,7 +7,7 @@
  * @fileoverview webpack configuration file.
  * Three dist files are created:
  * - endianness.cjs.js, CommonJS dist for Node. No dependencies included.
- * - endianness.umd.js, UMD with dependencies included.
+ * - endianness.umd.js, UMD. All with dependencies included.
  * - endianness.min.js, Compiled for browsers. All dependencies included.
  */
 
@@ -22,18 +22,9 @@ module.exports = [
     output: {
       filename: './dist/endianness.cjs.js',
       libraryTarget: "commonjs"
-    },
-    externals: {
-      'byte-data': 'byte-data',
-      "alawmulaw": "alawmulaw",
-      "base64-arraybuffer": "base64-arraybuffer",
-      "bitdepth": "bitdepth",
-      "byte-data": "byte-data",
-      "imaadpcm": "imaadpcm",
-      "riff-chunks": "riff-chunks"
-    },
+    }
   },
-  // UMD with dependencies in the bundle.
+  // UMD with all dependencies included.
   // Will be the one in the "browser" field of package.json.
   {
     entry: './index.js',
@@ -47,6 +38,7 @@ module.exports = [
     }
   },
   // Browser dist with dependencies, compiled.
+  // Will be the one delivered by services like unpkg.
   {
     entry: './index.js',
     resolve: {
@@ -67,8 +59,8 @@ module.exports = [
           exportLocalPropertyDefinitions: true,
           generateExports: true,
           outputWrapper: '%output%window["endianness"]=window["endianness"]["endianness"];'
-        },
+        }
       })
     ]
-  },
+  }
 ];
