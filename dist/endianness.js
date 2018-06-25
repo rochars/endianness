@@ -41,7 +41,7 @@
  * @param {?number=} end The end index. Assumes the buffer length.
  * @throws {Error} If the buffer length is not valid.
  */
-export default function endianness(bytes, offset, start=0, end=null) {
+function endianness(bytes, offset, start=0, end=null) {
     let len = end || bytes.length;
     let limit = parseInt(offset / 2, 10);
     if (len % offset) {
@@ -72,3 +72,5 @@ function swap(bytes, offset, index, limit) {
         y--;
     }
 }
+
+export default endianness;

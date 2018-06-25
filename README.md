@@ -16,23 +16,30 @@ Swap endianness in byte arrays. The input buffer is modified in-place.
 npm install endianness
 ```
 
-## Example
+## Use
+
+### ES6
+```import``` endianness from the **endianness.js** module:
 ```javascript
-const endianness = require("endianness").endianness;
+import endianness from 'endianness.js';
 
 // Swap endianness of one 64-bit value:
-bytes = [64, 9, 33, 251, 84, 68, 45, 24];
+let bytes = [64, 9, 33, 251, 84, 68, 45, 24];
 endianness(bytes, 8);
-console.log(bytes);
-
-// Swap endianness of two 24-bit values:
-bytes = ["00", "00", "80", "ff", "ff", "7f"];
-endianness(bytes, 3),
-console.log(bytes);
 ```
 
-## Browser
-Use the compiled file in the */dist* folder:
+### Node
+```require()``` the **endianness** module:
+```javascript
+const endianness = require("endianness");
+
+// Swap endianness of two 24-bit values:
+let bytes = ["00", "00", "80", "ff", "ff", "7f"];
+endianness(bytes, 3),
+```
+
+### Browser
+Use the compiled file **endianness.min.js** in the **dist/** folder:
 ```html
 <script src="endianness.min.js"></script>
 <script>
@@ -44,12 +51,20 @@ Use the compiled file in the */dist* folder:
 
 Or get it from the [jsDelivr](https://www.jsdelivr.com) CDN:
 ```html
-<script src="https://cdn.jsdelivr.net/npm/endianness@6"></script>
+<script src="https://cdn.jsdelivr.net/npm/endianness@7"></script>
 ```
 
 Or get it from [unpkg](https://www.unpkg.com):
 ```html
-<script src="https://unpkg.com/endianness@6"></script>
+<script src="https://unpkg.com/endianness@7"></script>
+```
+
+Or as a ES6 module for modern browsers from [jspm](https://jspm.io):
+```html
+<script type="module">
+	import endianness from 'https://dev.jspm.io/endianness';
+	// your code
+</script>
 ```
 
 ## API
@@ -62,30 +77,18 @@ Or get it from [unpkg](https://www.unpkg.com):
  * @param {?number=} end The end index. Assumes the buffer length.
  * @throws {Error} If the buffer length is not valid.
  */
-export function endianness(bytes, offset, start=0, end=null) {}
+function endianness(bytes, offset, start=0, end=null) {}
 ```
 
 ## Distribution
-This library is implemented as a ES6 module and also distributed as a CommonJS module, UMD module and a compiled script for browsers. If your system does not pick one automatically for you, you can pick one in the **dist/** folder.
-- The CommonJS is the one used by Node. It is served in the "main" field of this library's package.json
-- The UMD module is compatible with Node, AMD and browsers. It is served in the "browser" field.
-- The compiled dist is browser-only and should be the one served by CDNs.
-- The "module" field points to "./index.js" and should be the default entry point.
+This library is a ES6 module also distributed as a CommonJS module, UMD module and a compiled script for browsers.
 
-If you are using a module bundler to compile a module that depends on **endianness** you might need to specify what is the correct entry point as some bundlers will assume "browser". In general, you should point to "module".
+- The **CommonJS** is the one used by Node. It is served in the "main" field of package.json
+- The **UMD** module is compatible with Node, AMD and browsers. It is served in the "browser" field.
+- The **compiled dist** is browser-only and should be the one served by CDNs.
+- The **ES6** dist is **endianness.js**
 
-### webpack example:
-```javascript
-module.exports = {
-  entry: './index.js',
-  resolve: {
-    // tells webpack to use 'module' or 'main'
-    // not 'browser'
-    mainFields: ['module', 'main']
-  },
-  ...
-};
-```
+You may load both **endianness.umd.js** and **endianness.min.js** in the browser with ```<script>``` tags.
 
 ## LICENSE
 Copyright (c) 2017-2018 Rafael da Silva Rocha.

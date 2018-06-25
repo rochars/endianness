@@ -16,17 +16,22 @@ if (process.argv[3] == '--min') {
 // UMD
 } else if (process.argv[3] == '--umd') {
 	console.log('UMD tests');
-	endianness = require('../dist/endianness.umd.js').endianness;
+	endianness = require('../dist/endianness.umd.js');
 
 // CommonJS
 } else if (process.argv[3] == '--cjs') {
 	console.log('CommonJS tests');
-	endianness = require('../dist/endianness.cjs.js').endianness;
+	endianness = require('../dist/endianness.cjs.js');
 
-// ESM
+// esm
+} else if (process.argv[3] == '--esm') {
+	console.log('ESM tests');
+	endianness = require('../dist/endianness.js').default;
+
+// source
 } else {
 	console.log('Source tests');
-	endianness = require('../index.js').endianness;
+	endianness = require('../index.js').default;
 }
 
 module.exports = endianness;
