@@ -1,11 +1,20 @@
 /*
- * https://github.com/rochars/byte-data
+ * https://github.com/rochars/endianness
  * Copyright (c) 2017-2018 Rafael da Silva Rocha.
  */
 
 /**
  * @fileoverview rollup configuration file.
  */
+
+import commonjs from 'rollup-plugin-commonjs';
+import nodeResolve from 'rollup-plugin-node-resolve';
+import closure from 'rollup-plugin-closure-compiler-js';
+
+// License notes for bundles that include dependencies
+const license = '/*!\n'+
+  ' * endianness Copyright (c) 2017-2018 Rafael da Silva Rocha.\n'+
+  ' */\n';
 
 export default [
   // cjs
@@ -15,11 +24,16 @@ export default [
       {
         file: 'dist/endianness.cjs.js',
         name: 'endianness',
-        format: 'cjs'
+        format: 'cjs',
+        footer: 'module.exports.default = endianness;',
       }
+    ],
+    plugins: [
+      nodeResolve(),
+      commonjs()
     ]
   },
-  // umd
+  // umd, es
   {
     input: 'index.js',
     output: [
@@ -27,17 +41,38 @@ export default [
         file: 'dist/endianness.umd.js',
         name: 'endianness',
         format: 'umd'
+      },
+      {
+        file: 'dist/endianness.js',
+        format: 'es'
       }
+    ],
+    plugins: [
+      nodeResolve(),
+      commonjs()
     ]
   },
-  // esm
+  // browser
   {
     input: 'index.js',
     output: [
       {
-        file: 'dist/endianness.js',
-        format: 'es',
+        name: 'endianness',
+        format: 'iife',
+        file: 'dist/endianness.min.js',
+        banner: license,
+        footer: 'window["endianness"]=endianness;'
       }
+    ],
+    plugins: [
+      nodeResolve(),
+      commonjs(),
+      closure({
+        languageIn: 'ECMASCRIPT6',
+        languageOut: 'ECMASCRIPT5',
+        compilationLevel: 'ADVANCED',
+        warningLevel: 'VERBOSE'
+      })
     ]
   }
 ];

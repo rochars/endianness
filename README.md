@@ -19,7 +19,7 @@ npm install endianness
 ## Use
 
 ### ES6
-```import``` endianness from the **endianness.js** module:
+```import``` endianness from **endianness.js**:
 ```javascript
 import endianness from 'endianness.js';
 
@@ -29,17 +29,17 @@ endianness(bytes, 8);
 ```
 
 ### Node
-```require()``` the **endianness** module:
+```require``` **endianness**:
 ```javascript
 const endianness = require("endianness");
 
 // Swap endianness of two 24-bit values:
-let bytes = ["00", "00", "80", "ff", "ff", "7f"];
+let bytes = new Uint8Array(["00", "00", "80", "ff", "ff", "7f"]);
 endianness(bytes, 3),
 ```
 
 ### Browser
-Use the compiled file **endianness.min.js** in the **dist/** folder:
+Use **endianness.min.js** from the **dist/** folder:
 ```html
 <script src="endianness.min.js"></script>
 <script>
@@ -49,21 +49,20 @@ Use the compiled file **endianness.min.js** in the **dist/** folder:
 </script>
 ```
 
-Or get it from the [jsDelivr](https://www.jsdelivr.com) CDN:
+Or get it from the [jsDelivr](https://www.jsdelivr.com/npm/endianness) CDN:
 ```html
-<script src="https://cdn.jsdelivr.net/npm/endianness@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/endianness"></script>
 ```
 
-Or get it from [unpkg](https://www.unpkg.com):
+Or get it from [unpkg](https://www.unpkg.com/endianness):
 ```html
-<script src="https://unpkg.com/endianness@7"></script>
+<script src="https://unpkg.com/endianness"></script>
 ```
 
 Or as a ES6 module for modern browsers from [jspm](https://jspm.io):
 ```html
 <script type="module">
 	import endianness from 'https://dev.jspm.io/endianness';
-	// your code
 </script>
 ```
 
@@ -79,16 +78,6 @@ Or as a ES6 module for modern browsers from [jspm](https://jspm.io):
  */
 function endianness(bytes, offset, start=0, end=null) {}
 ```
-
-## Distribution
-This library is a ES6 module also distributed as a CommonJS module, UMD module and a compiled script for browsers.
-
-- The **CommonJS** is the one used by Node. It is served in the "main" field of package.json
-- The **UMD** module is compatible with Node, AMD and browsers. It is served in the "browser" field.
-- The **compiled dist** is browser-only and should be the one served by CDNs.
-- The **ES6** dist is **endianness.js**
-
-You may load both **endianness.umd.js** and **endianness.min.js** in the browser with ```<script>``` tags.
 
 ## LICENSE
 Copyright (c) 2017-2018 Rafael da Silva Rocha.

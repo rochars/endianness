@@ -76,3 +76,4 @@ function swap(bytes, offset, index, limit) {
 }
 
 module.exports = endianness;
+module.exports.default = endianness;

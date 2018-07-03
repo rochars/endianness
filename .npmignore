@@ -13,4 +13,3 @@ test/
 .travis.yml
 appveyor.yml
 rollup.config.js
-webpack.config.js
