@@ -19,9 +19,9 @@ npm install endianness
 ## Use
 
 ### ES6
-```import``` endianness from **endianness.js**:
+```import``` endianness from **./dist/endianness.js**:
 ```javascript
-import endianness from 'endianness.js';
+import endianness from './dist/endianness.js';
 
 // Swap endianness of one 64-bit value:
 let bytes = [64, 9, 33, 251, 84, 68, 45, 24];
@@ -41,7 +41,7 @@ endianness(bytes, 3),
 ### Browser
 Use **endianness.min.js** from the **dist/** folder:
 ```html
-<script src="endianness.min.js"></script>
+<script src="./dist/endianness.min.js"></script>
 <script>
     var bytes = [64, 9, 33, 251, 84, 68, 45, 24]; 
     endianness(bytes, 8);
