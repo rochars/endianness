@@ -1,0 +1,42 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>endianness: browser tests</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://unpkg.com/mocha@4.0.1/mocha.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+</head>
+<body>
+
+	<div class="container">
+		<h1>endianness</h1><p>Copyright (c) 2017-2018 Rafael da Silva Rocha.<br>https://github.com/rochars/endianness  </p>
+		<p><a href="https://www.npmjs.com/package/endianness"><img src="https://img.shields.io/npm/v/endianness.svg?style=for-the-badge" alt="NPM version"></a> <a href="https://rochars.github.io/endianness/index.html"><img src="https://img.shields.io/badge/docs-online-blue.svg?style=for-the-badge" alt="Docs"></a> <a href="https://rawgit.com/rochars/endianness/master/test/browser.html"><img src="https://img.shields.io/badge/tests-online-blue.svg?style=for-the-badge" alt="Tests"></a><br><a href="https://codecov.io/gh/rochars/endianness"><img src="https://img.shields.io/codecov/c/github/rochars/endianness.svg?style=flat-square" alt="Codecov"></a> <a href="https://travis-ci.org/rochars/endianness"><img src="https://img.shields.io/travis/rochars/endianness.svg?style=flat-square" alt="Unix Build"></a> <a href="https://ci.appveyor.com/project/rochars/endianness"><img src="https://img.shields.io/appveyor/ci/rochars/endianness.svg?style=flat-square&amp;logo=appveyor" alt="Windows Build"></a> <a href="https://scrutinizer-ci.com/g/rochars/endianness/"><img src="https://img.shields.io/scrutinizer/g/rochars/endianness.svg?style=flat-square&amp;logo=scrutinizer" alt="Scrutinizer"></a></p>
+	</div>
+
+	<!-- Load Mocha -->
+	<div class="container">
+		<div id="mocha"></div>
+	</div>
+
+	<script type=module>
+	  import Buffer from 'https://dev.jspm.io/buffer';
+	</script>
+
+	<script src="https://unpkg.com/chai@4.1.2/chai.js"></script>
+	<script src="https://unpkg.com/mocha@4.0.1/mocha.js"></script>
+	<script>mocha.setup('bdd')</script>
+
+	<!-- Load browser dist, load types -->
+	<script src="../dist/endianness.umd.js"></script>
+
+	<!-- Load the tests -->
+	<script src="endianness.js"></script>
+
+	<!-- Run the tests -->
+	<script>
+	    mocha.checkLeaks();
+	    mocha.run();
+	</script>
+
+</body>
+</html>
