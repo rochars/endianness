@@ -3,4 +3,4 @@
 // Definitions by: Rafael S. Rocha <https://github.com/rochars>
 // Definitions: https://github.com/rochars/endianness
 
-export default function endianness(bytes: Array<number|string>|Uint8Array, offset?: number, start?: number, end?: number): void;
+export default function endianness(bytes: Array<number|string>|Uint8Array, offset: number, start?: number, end?: number): void;

@@ -47,7 +47,7 @@
 
     <section class="readme">
         <article><h1>endianness</h1><p>Copyright (c) 2017-2018 Rafael da Silva Rocha.<br>https://github.com/rochars/endianness  </p>
-<p><a href="https://www.npmjs.com/package/endianness"><img src="https://img.shields.io/npm/v/endianness.svg?style=for-the-badge" alt="NPM version"></a> <a href="https://rochars.github.io/endianness/index.html"><img src="https://img.shields.io/badge/docs-online-blue.svg?style=for-the-badge" alt="Docs"></a><br><a href="https://codecov.io/gh/rochars/endianness"><img src="https://img.shields.io/codecov/c/github/rochars/endianness.svg?style=flat-square" alt="Codecov"></a> <a href="https://travis-ci.org/rochars/endianness"><img src="https://img.shields.io/travis/rochars/endianness.svg?style=flat-square" alt="Unix Build"></a> <a href="https://ci.appveyor.com/project/rochars/endianness"><img src="https://img.shields.io/appveyor/ci/rochars/endianness.svg?style=flat-square&amp;logo=appveyor" alt="Windows Build"></a> <a href="https://scrutinizer-ci.com/g/rochars/endianness/"><img src="https://img.shields.io/scrutinizer/g/rochars/endianness.svg?style=flat-square&amp;logo=scrutinizer" alt="Scrutinizer"></a></p>
+<p><a href="https://www.npmjs.com/package/endianness"><img src="https://img.shields.io/npm/v/endianness.svg?style=for-the-badge" alt="NPM version"></a> <a href="https://rochars.github.io/endianness/index.html"><img src="https://img.shields.io/badge/docs-online-blue.svg?style=for-the-badge" alt="Docs"></a> <a href="https://rawgit.com/rochars/endianness/master/test/browser.html"><img src="https://img.shields.io/badge/tests-online-blue.svg?style=for-the-badge" alt="Tests"></a><br><a href="https://codecov.io/gh/rochars/endianness"><img src="https://img.shields.io/codecov/c/github/rochars/endianness.svg?style=flat-square" alt="Codecov"></a> <a href="https://travis-ci.org/rochars/endianness"><img src="https://img.shields.io/travis/rochars/endianness.svg?style=flat-square" alt="Unix Build"></a> <a href="https://ci.appveyor.com/project/rochars/endianness"><img src="https://img.shields.io/appveyor/ci/rochars/endianness.svg?style=flat-square&amp;logo=appveyor" alt="Windows Build"></a> <a href="https://scrutinizer-ci.com/g/rochars/endianness/"><img src="https://img.shields.io/scrutinizer/g/rochars/endianness.svg?style=flat-square&amp;logo=scrutinizer" alt="Scrutinizer"></a></p>
 <p>Swap endianness in byte arrays. The input buffer is modified in-place.</p>
 <ul>
 <li>Works everywhere, server and browser</li>
@@ -83,7 +83,25 @@ endianness(bytes, 3),</code></pre><h3>Browser</h3><p>Use <strong>endianness.min.
  * @param {?number=} end The end index. Assumes the buffer length.
  * @throws {Error} If the buffer length is not valid.
  */
-function endianness(bytes, offset, start=0, end=null) {}</code></pre><h2>LICENSE</h2><p>Copyright (c) 2017-2018 Rafael da Silva Rocha.</p>
+function endianness(bytes, offset, start=0, end=null) {}</code></pre><h2>Distribution</h2><p>This library is a ES module also distributed as a CommonJS module, UMD module and a compiled script for browsers. It works out of the box in Node when installed with <code>npm install endianness</code>. It includes a TypeScript definition file.</p>
+<p>If you use the <a href="https://github.com/google/closure-compiler">Closure Compiler</a>, this package includes a externs file: <strong>./externs.js</strong>.</p>
+<h3>If you are using this lib in a browser:</h3><p>You may load both <strong>./dist/endianness.umd.js</strong> and <strong>./dist/endianness.min.js</strong> in the browser with <code>&lt;script&gt;</code> tags. Ideally you should use <strong>endianness.min.js</strong>. You can load it via the https://unpkg.com and https://<a href="http://www.jsdelivr.com/">www.jsdelivr.com/</a> CDNs:</p>
+<p><a href="https://unpkg.com/endianness">unpkg</a>:</p>
+<pre class="prettyprint source lang-html"><code>&lt;script src=&quot;https://unpkg.com/endianness&quot;>&lt;/script></code></pre><p><a href="https://cdn.jsdelivr.net/npm/endianness">jsDelivr</a>:</p>
+<pre class="prettyprint source lang-html"><code>&lt;script src=&quot;https://cdn.jsdelivr.net/npm/endianness&quot;>&lt;/script></code></pre><h3>If you are using this lib as a dependency:</h3><ul>
+<li><p>The <strong>CommonJS</strong> is the dist file used by Node. It is served in the &quot;main&quot; field of package.json. This is the source you are running when you <strong>npm install endianness</strong>.</p>
+</li>
+<li><p>The <strong>UMD</strong> module is compatible with Node, AMD and browsers. It is served in the &quot;browser&quot; field of package.json. This file is not compiled/minified as it may be used by module bundlers. Compilation/minification should be up to the bundler consuming this file.</p>
+</li>
+<li><p>The <strong>compiled dist</strong> is browser-only and should be the one served by CDNs. It is used in the &quot;unpkg&quot; and &quot;jsdelivr&quot; fields of package.json.</p>
+</li>
+<li><p>The <strong>ES6 dist</strong> is <strong>./dist/endianness.js</strong>, served as &quot;es2015&quot; in package.json. It is not compiled/minified.</p>
+</li>
+<li><p><strong>./index.js</strong> is served as &quot;module&quot; in package.json. This should be the entry point for bundlers.</p>
+</li>
+</ul>
+<p>If your module bundler is using &quot;browser&quot; as the entry point <strong>your dist should work the same</strong> but will be a larger file.</p>
+<h2>LICENSE</h2><p>Copyright (c) 2017-2018 Rafael da Silva Rocha.</p>
 <p>Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
 &quot;Software&quot;), to deal in the Software without restriction, including
@@ -131,7 +149,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p></article>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line28">line 28</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line25">line 25</a>
     </li></ul></dd>
     
 
@@ -161,6 +179,13 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p></article>
 
     
 
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="https://github.com/rochars/endianness">https://github.com/rochars/endianness</a></li>
+        </ul>
+    </dd>
     
 
     
@@ -206,7 +231,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p></article>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jul 03 2018 02:43:00 GMT-0300 (Hora oficial do Brasil) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Jul 06 2018 12:01:02 GMT-0300 (Hora oficial do Brasil) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## version 7.0.2 (2018-07-06)
+- Fix: make 'offset' param not optional in index.d.ts
+
 ## version 7.0.1 (2018-07-03)
 - Smaller browser dist file (312 bytes)
 - Add TypeScript declaration file

@@ -5,9 +5,6 @@
 }(this, (function () { 'use strict';
 
     /*
-     * endianness: Swap endianness in byte arrays.
-     * https://github.com/rochars/endianness
-     *
      * Copyright (c) 2017-2018 Rafael da Silva Rocha.
      *
      * Permission is hereby granted, free of charge, to any person obtaining
@@ -33,6 +30,7 @@
 
     /**
      * @fileoverview A function to swap endianness in byte buffers.
+     * @see https://github.com/rochars/endianness
      */
 
     /**
@@ -43,20 +41,19 @@
      * Swap the byte ordering in a buffer. The buffer is modified in place.
      * @param {!Array<number|string>|!Uint8Array} bytes The bytes.
      * @param {number} offset The byte offset.
-     * @param {number=} start The start index. Assumes 0.
+     * @param {number=} index The start index. Assumes 0.
      * @param {?number=} end The end index. Assumes the buffer length.
      * @throws {Error} If the buffer length is not valid.
      */
-    function endianness(bytes, offset, start=0, end=null) {
+    function endianness(bytes, offset, index=0, end=null) {
         let len = end || bytes.length;
         let limit = parseInt(offset / 2, 10);
         if (len % offset) {
             throw new Error("Bad buffer length.");
         }
-        let i = start;
-        while (i < len) {
-            swap(bytes, offset, i, limit);
-            i += offset;
+        while (index < len) {
+            swap(bytes, offset, index, limit);
+            index += offset;
         }
     }
 
