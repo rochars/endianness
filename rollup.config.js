@@ -16,8 +16,16 @@ const license = '/*!\n'+
   ' * endianness Copyright (c) 2017-2018 Rafael da Silva Rocha.\n'+
   ' */\n';
 
+let UMDBanner = "(function (global, factory) {" +
+  "typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :" +
+  "typeof define === 'function' && define.amd ? define(factory) :" +
+  "(global.endianness = factory());" +
+  "}(this, (function () { 'use strict';"
+
+let UMDFooter = 'return endianness; })));';
+
 export default [
-  // cjs
+  // cjs, es
   {
     input: 'index.js',
     output: [
@@ -26,21 +34,6 @@ export default [
         name: 'endianness',
         format: 'cjs',
         footer: 'module.exports.default = endianness;',
-      }
-    ],
-    plugins: [
-      nodeResolve(),
-      commonjs()
-    ]
-  },
-  // umd, es
-  {
-    input: 'index.js',
-    output: [
-      {
-        file: 'dist/endianness.umd.js',
-        name: 'endianness',
-        format: 'umd'
       },
       {
         file: 'dist/endianness.js',
@@ -50,6 +43,30 @@ export default [
     plugins: [
       nodeResolve(),
       commonjs()
+    ]
+  },
+  // umd
+  {
+    input: 'index.js',
+    output: [
+      {
+        file: 'dist/endianness.umd.js',
+        name: 'endianness',
+        format: 'iife'
+      }
+    ],
+    plugins: [
+      nodeResolve(),
+      commonjs(),
+      closure({
+        languageIn: 'ECMASCRIPT6',
+        languageOut: 'ECMASCRIPT5',
+        compilationLevel: 'WHITESPACE_ONLY',
+        warningLevel: 'VERBOSE',
+        preserveTypeAnnotations: true,
+        createSourceMap: false,
+        outputWrapper: UMDBanner + '%output%' + UMDFooter
+      })
     ]
   },
   // browser

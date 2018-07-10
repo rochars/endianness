@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## version 7.0.3 (2018-07-09)
+- Fix: UMD dist transpiled to ES5
+
 ## version 7.0.2 (2018-07-06)
 - Fix: make 'offset' param not optional in index.d.ts
 

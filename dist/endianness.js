@@ -28,27 +28,20 @@
  */
 
 /**
- * @module endianness
- */
-
-/**
  * Swap the byte ordering in a buffer. The buffer is modified in place.
  * @param {!Array<number|string>|!Uint8Array} bytes The bytes.
  * @param {number} offset The byte offset.
  * @param {number=} index The start index. Assumes 0.
- * @param {?number=} end The end index. Assumes the buffer length.
+ * @param {number=} end The end index. Assumes the buffer length.
  * @throws {Error} If the buffer length is not valid.
  */
-function endianness(bytes, offset, index=0, end=null) {
-    let len = end || bytes.length;
-    let limit = parseInt(offset / 2, 10);
-    if (len % offset) {
-        throw new Error("Bad buffer length.");
-    }
-    while (index < len) {
-        swap(bytes, offset, index, limit);
-        index += offset;
-    }
+function endianness(bytes, offset, index=0, end=bytes.length) {
+  if (end % offset) {
+    throw new Error("Bad buffer length.");
+  }
+  for (; index < end; index += offset) {
+    swap(bytes, offset, index);
+  }
 }
 
 /**
@@ -58,16 +51,15 @@ function endianness(bytes, offset, index=0, end=null) {
  * @param {number} index The start index.
  * @private
  */
-function swap(bytes, offset, index, limit) {
-    let x = 0;
-    let y = offset - 1;
-    while(x < limit) {
-        let theByte = bytes[index + x];
-        bytes[index + x] = bytes[index + y];
-        bytes[index + y] = theByte;
-        x++;
-        y--;
-    }
+function swap(bytes, offset, index) {
+  offset--;
+  for(let x = 0; x < offset; x++) {
+    /** @type {number|string} */
+    let theByte = bytes[index + x];
+    bytes[index + x] = bytes[index + offset];
+    bytes[index + offset] = theByte;
+    offset--;
+  }
 }
 
 export default endianness;

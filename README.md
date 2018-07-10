@@ -18,16 +18,6 @@ npm install endianness
 
 ## Use
 
-### ES6
-```import``` endianness from **./dist/endianness.js**:
-```javascript
-import endianness from './dist/endianness.js';
-
-// Swap endianness of one 64-bit value:
-let bytes = [64, 9, 33, 251, 84, 68, 45, 24];
-endianness(bytes, 8);
-```
-
 ### Node
 ```require``` **endianness**:
 ```javascript
@@ -36,6 +26,16 @@ const endianness = require("endianness");
 // Swap endianness of two 24-bit values:
 let bytes = new Uint8Array(["00", "00", "80", "ff", "ff", "7f"]);
 endianness(bytes, 3),
+```
+
+### ES module
+```import``` endianness from **./dist/endianness.js**:
+```javascript
+import endianness from './dist/endianness.js';
+
+// Swap endianness of one 64-bit value:
+let bytes = [64, 9, 33, 251, 84, 68, 45, 24];
+endianness(bytes, 8);
 ```
 
 ### Browser
@@ -72,11 +72,11 @@ Or as a ES6 module for modern browsers from [jspm](https://jspm.io):
  * Swap the byte ordering in a buffer. The buffer is modified in place.
  * @param {!Array<number|string>|!Uint8Array} bytes The bytes.
  * @param {number} offset The byte offset.
- * @param {number=} start The start index. Assumes 0.
- * @param {?number=} end The end index. Assumes the buffer length.
+ * @param {number=} index The start index. Assumes 0.
+ * @param {number=} end The end index. Assumes the buffer length.
  * @throws {Error} If the buffer length is not valid.
  */
-function endianness(bytes, offset, start=0, end=null) {}
+function endianness(bytes, offset, index=0, end=bytes.length) {}
 ```
 
 ## Distribution
@@ -100,11 +100,11 @@ You may load both **./dist/endianness.umd.js** and **./dist/endianness.min.js** 
 
 ### If you are using this lib as a dependency:
 
-- The **CommonJS** is the dist file used by Node. It is served in the "main" field of package.json. This is the source you are running when you **npm install endianness**.
+- The **CommonJS** dist is **./dist/endianness.cjs.js**. It is the dist file used by Node. It is served in the "main" field of package.json and is the source you are running when you **npm install endianness**. It is not compiled or minified.
 
-- The **UMD** module is compatible with Node, AMD and browsers. It is served in the "browser" field of package.json. This file is not compiled/minified as it may be used by module bundlers. Compilation/minification should be up to the bundler consuming this file.
+- The **UMD** module is **./dist/endianness.umd.js**. It is transpiled to ES5 and compatible with Node, AMD and browsers. It is served in the "browser" field of package.json.
 
-- The **compiled dist** is browser-only and should be the one served by CDNs. It is used in the "unpkg" and "jsdelivr" fields of package.json.
+- The **browser-only** dist is **./dist/endianness.min.js**. It is transpiled to ES5 and compiled. It is used in the "unpkg" and "jsdelivr" fields of package.json.
 
 - The **ES6 dist** is **./dist/endianness.js**, served as "es2015" in package.json. It is not compiled/minified.
 

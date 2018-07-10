@@ -22,7 +22,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-endianness.html">endianness</a></li></ul>
+    <h2><a href="index.html">Home</a></h2>
 </nav>
 
 <div id="main">
@@ -54,17 +54,17 @@
 <li>Works with any byte offset</li>
 <li>Can swap only a part of the buffer</li>
 </ul>
-<h2>Install</h2><pre class="prettyprint source"><code>npm install endianness</code></pre><h2>Use</h2><h3>ES6</h3><p><code>import</code> endianness from <strong>./dist/endianness.js</strong>:</p>
-<pre class="prettyprint source lang-javascript"><code>import endianness from './dist/endianness.js';
-
-// Swap endianness of one 64-bit value:
-let bytes = [64, 9, 33, 251, 84, 68, 45, 24];
-endianness(bytes, 8);</code></pre><h3>Node</h3><p><code>require</code> <strong>endianness</strong>:</p>
+<h2>Install</h2><pre class="prettyprint source"><code>npm install endianness</code></pre><h2>Use</h2><h3>Node</h3><p><code>require</code> <strong>endianness</strong>:</p>
 <pre class="prettyprint source lang-javascript"><code>const endianness = require(&quot;endianness&quot;);
 
 // Swap endianness of two 24-bit values:
 let bytes = new Uint8Array([&quot;00&quot;, &quot;00&quot;, &quot;80&quot;, &quot;ff&quot;, &quot;ff&quot;, &quot;7f&quot;]);
-endianness(bytes, 3),</code></pre><h3>Browser</h3><p>Use <strong>endianness.min.js</strong> from the <strong>dist/</strong> folder:</p>
+endianness(bytes, 3),</code></pre><h3>ES module</h3><p><code>import</code> endianness from <strong>./dist/endianness.js</strong>:</p>
+<pre class="prettyprint source lang-javascript"><code>import endianness from './dist/endianness.js';
+
+// Swap endianness of one 64-bit value:
+let bytes = [64, 9, 33, 251, 84, 68, 45, 24];
+endianness(bytes, 8);</code></pre><h3>Browser</h3><p>Use <strong>endianness.min.js</strong> from the <strong>dist/</strong> folder:</p>
 <pre class="prettyprint source lang-html"><code>&lt;script src=&quot;./dist/endianness.min.js&quot;>&lt;/script>
 &lt;script>
     var bytes = [64, 9, 33, 251, 84, 68, 45, 24]; 
@@ -79,21 +79,21 @@ endianness(bytes, 3),</code></pre><h3>Browser</h3><p>Use <strong>endianness.min.
  * Swap the byte ordering in a buffer. The buffer is modified in place.
  * @param {!Array&lt;number|string>|!Uint8Array} bytes The bytes.
  * @param {number} offset The byte offset.
- * @param {number=} start The start index. Assumes 0.
- * @param {?number=} end The end index. Assumes the buffer length.
+ * @param {number=} index The start index. Assumes 0.
+ * @param {number=} end The end index. Assumes the buffer length.
  * @throws {Error} If the buffer length is not valid.
  */
-function endianness(bytes, offset, start=0, end=null) {}</code></pre><h2>Distribution</h2><p>This library is a ES module also distributed as a CommonJS module, UMD module and a compiled script for browsers. It works out of the box in Node when installed with <code>npm install endianness</code>. It includes a TypeScript definition file.</p>
+function endianness(bytes, offset, index=0, end=bytes.length) {}</code></pre><h2>Distribution</h2><p>This library is a ES module also distributed as a CommonJS module, UMD module and a compiled script for browsers. It works out of the box in Node when installed with <code>npm install endianness</code>. It includes a TypeScript definition file.</p>
 <p>If you use the <a href="https://github.com/google/closure-compiler">Closure Compiler</a>, this package includes a externs file: <strong>./externs.js</strong>.</p>
 <h3>If you are using this lib in a browser:</h3><p>You may load both <strong>./dist/endianness.umd.js</strong> and <strong>./dist/endianness.min.js</strong> in the browser with <code>&lt;script&gt;</code> tags. Ideally you should use <strong>endianness.min.js</strong>. You can load it via the https://unpkg.com and https://<a href="http://www.jsdelivr.com/">www.jsdelivr.com/</a> CDNs:</p>
 <p><a href="https://unpkg.com/endianness">unpkg</a>:</p>
 <pre class="prettyprint source lang-html"><code>&lt;script src=&quot;https://unpkg.com/endianness&quot;>&lt;/script></code></pre><p><a href="https://cdn.jsdelivr.net/npm/endianness">jsDelivr</a>:</p>
 <pre class="prettyprint source lang-html"><code>&lt;script src=&quot;https://cdn.jsdelivr.net/npm/endianness&quot;>&lt;/script></code></pre><h3>If you are using this lib as a dependency:</h3><ul>
-<li><p>The <strong>CommonJS</strong> is the dist file used by Node. It is served in the &quot;main&quot; field of package.json. This is the source you are running when you <strong>npm install endianness</strong>.</p>
+<li><p>The <strong>CommonJS</strong> dist is <strong>./dist/endianness.cjs.js</strong>. It is the dist file used by Node. It is served in the &quot;main&quot; field of package.json and is the source you are running when you <strong>npm install endianness</strong>. It is not compiled or minified.</p>
 </li>
-<li><p>The <strong>UMD</strong> module is compatible with Node, AMD and browsers. It is served in the &quot;browser&quot; field of package.json. This file is not compiled/minified as it may be used by module bundlers. Compilation/minification should be up to the bundler consuming this file.</p>
+<li><p>The <strong>UMD</strong> module is <strong>./dist/endianness.umd.js</strong>. It is transpiled to ES5 and compatible with Node, AMD and browsers. It is served in the &quot;browser&quot; field of package.json.</p>
 </li>
-<li><p>The <strong>compiled dist</strong> is browser-only and should be the one served by CDNs. It is used in the &quot;unpkg&quot; and &quot;jsdelivr&quot; fields of package.json.</p>
+<li><p>The <strong>browser-only</strong> dist is <strong>./dist/endianness.min.js</strong>. It is transpiled to ES5 and compiled. It is used in the &quot;unpkg&quot; and &quot;jsdelivr&quot; fields of package.json.</p>
 </li>
 <li><p>The <strong>ES6 dist</strong> is <strong>./dist/endianness.js</strong>, served as &quot;es2015&quot; in package.json. It is not compiled/minified.</p>
 </li>
@@ -231,7 +231,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p></article>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Jul 06 2018 12:13:59 GMT-0300 (Hora oficial do Brasil) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Jul 09 2018 22:23:12 GMT-0300 (Hora oficial do Brasil) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
