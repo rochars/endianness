@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>endianness: browser tests</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="browser-runtime/mocha.css" rel="stylesheet" />
+    <link rel="stylesheet" href="browser-runtime/bootstrap.min.css">
+</head>
+<body>
+
+	<div class="container">
+		<h1><a href="https://github.com/rochars/endianness">endianness</a></h1>
+		<p>Copyright (c) 2017-2018 Rafael da Silva Rocha.<br>
+			<a href="https://github.com/rochars/endianness">https://github.com/rochars/endianness</a></p>
+	</div>
+
+	<!-- load shims -->
+	<script src="browser-runtime/shims.js"></script>
+
+	<!-- Load Mocha -->
+	<div class="container">
+		<div id="mocha"></div>
+	</div>
+	<script src="browser-runtime/assert.js"></script>
+	<script src="browser-runtime/mocha.js"></script>
+	<script>mocha.setup('bdd');</script>
+
+	<!-- Load browser dist, load types -->
+	<script src="../../endianness.umd.js"></script>
+
+	<!-- Load the tests -->
+	<script src="../src/endianness.js"></script>
+
+	<!-- Run the tests -->
+	<script>
+	    mocha.checkLeaks();
+	    mocha.run();
+	</script>
+
+</body>
+</html>

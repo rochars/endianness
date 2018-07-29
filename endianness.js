@@ -27,26 +27,28 @@
  * @see https://github.com/rochars/endianness
  */
 
+/** @module endianness */
+
 /**
  * Swap the byte ordering in a buffer. The buffer is modified in place.
- * @param {!Array<number|string>|!Uint8Array} bytes The bytes.
+ * @param {!Array|!Uint8Array} bytes The bytes.
  * @param {number} offset The byte offset.
- * @param {number=} index The start index. Assumes 0.
+ * @param {number=} start The start index. Assumes 0.
  * @param {number=} end The end index. Assumes the buffer length.
  * @throws {Error} If the buffer length is not valid.
  */
-export default function endianness(bytes, offset, index=0, end=bytes.length) {
+export default function endianness(bytes, offset, start=0, end=bytes.length) {
   if (end % offset) {
     throw new Error("Bad buffer length.");
   }
-  for (; index < end; index += offset) {
+  for (let index = start; index < end; index += offset) {
     swap(bytes, offset, index);
   }
 }
 
 /**
  * Swap the byte order of a value in a buffer. The buffer is modified in place.
- * @param {!Array<number|string>|!Uint8Array} bytes The bytes.
+ * @param {!Array|!Uint8Array} bytes The bytes.
  * @param {number} offset The byte offset.
  * @param {number} index The start index.
  * @private
@@ -54,7 +56,7 @@ export default function endianness(bytes, offset, index=0, end=bytes.length) {
 function swap(bytes, offset, index) {
   offset--;
   for(let x = 0; x < offset; x++) {
-    /** @type {number|string} */
+    /** @type {*} */
     let theByte = bytes[index + x];
     bytes[index + x] = bytes[index + offset];
     bytes[index + offset] = theByte;

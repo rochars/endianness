@@ -1,94 +1,43 @@
 /*
- * https://github.com/rochars/endianness
  * Copyright (c) 2017-2018 Rafael da Silva Rocha.
  */
 
 /**
- * @fileoverview rollup configuration file.
+ * @fileoverview Rollup configuration file.
+ * @see https://github.com/rochars/endianness
  */
 
-import commonjs from 'rollup-plugin-commonjs';
-import nodeResolve from 'rollup-plugin-node-resolve';
 import closure from 'rollup-plugin-closure-compiler-js';
+import {unexport} from 'rollup-plugin-bundleutils';
 
-// License notes for bundles that include dependencies
-const license = '/*!\n'+
-  ' * endianness Copyright (c) 2017-2018 Rafael da Silva Rocha.\n'+
-  ' */\n';
+const license = '/*!\n' +
+' * https://github.com/rochars/endianness\n' +
+' * Copyright (c) 2017-2018 Rafael da Silva Rocha. MIT License.\n' +
+' */\n';
 
-let UMDBanner = "(function (global, factory) {" +
-  "typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :" +
-  "typeof define === 'function' && define.amd ? define(factory) :" +
-  "(global.endianness = factory());" +
-  "}(this, (function () { 'use strict';"
-
-let UMDFooter = 'return endianness; })));';
+// GCC UMD footer, compatible with old browsers, Node and AMD loaders
+const footer = 
+"typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = endianness :" +
+"typeof define === 'function' && define.amd ? define(['exports'], endianness) :" +
+"typeof global !== 'undefined' ? global.endianness = endianness : null;";
 
 export default [
-  // cjs, es
   {
-    input: 'index.js',
+    input: 'endianness.js',
     output: [
       {
-        file: 'dist/endianness.cjs.js',
-        name: 'endianness',
-        format: 'cjs',
-        footer: 'module.exports.default = endianness;',
-      },
-      {
-        file: 'dist/endianness.js',
-        format: 'es'
+        file: 'endianness.umd.js',
+        format: 'esm',
       }
     ],
     plugins: [
-      nodeResolve(),
-      commonjs()
-    ]
-  },
-  // umd
-  {
-    input: 'index.js',
-    output: [
-      {
-        file: 'dist/endianness.umd.js',
-        name: 'endianness',
-        format: 'iife'
-      }
-    ],
-    plugins: [
-      nodeResolve(),
-      commonjs(),
+      unexport(),
       closure({
         languageIn: 'ECMASCRIPT6',
-        languageOut: 'ECMASCRIPT5',
-        compilationLevel: 'WHITESPACE_ONLY',
+        languageOut: 'ECMASCRIPT3',
+        compilationLevel: 'SIMPLE',
         warningLevel: 'VERBOSE',
-        preserveTypeAnnotations: true,
-        createSourceMap: false,
-        outputWrapper: UMDBanner + '%output%' + UMDFooter
-      })
-    ]
-  },
-  // browser
-  {
-    input: 'index.js',
-    output: [
-      {
-        name: 'endianness',
-        format: 'iife',
-        file: 'dist/endianness.min.js',
-        banner: license,
-        footer: 'window["endianness"]=endianness;'
-      }
-    ],
-    plugins: [
-      nodeResolve(),
-      commonjs(),
-      closure({
-        languageIn: 'ECMASCRIPT6',
-        languageOut: 'ECMASCRIPT5',
-        compilationLevel: 'ADVANCED',
-        warningLevel: 'VERBOSE'
+        outputWrapper: license + '%output%' + footer
       })
     ]
   }

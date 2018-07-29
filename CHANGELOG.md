@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## version 8.0.0 (2018-07-27)
+- compatible with IE8+
+- index.js renamed to *endianness.js*. 
+- *endianness.js* and *endianness.umd.js* are the only dist files.
+- Fix TypeScript declaration and add tests to avoid breaking in future releases
+
 ## version 7.0.3 (2018-07-09)
 - Fix: UMD dist transpiled to ES5
 

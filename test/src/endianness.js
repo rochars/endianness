@@ -1,12 +1,14 @@
 /*
- * Copyright (c) 2017 Rafael da Silva Rocha.
- * https://github.com/rochars/endianness
- *
+ * Copyright (c) 2017-2018 Rafael da Silva Rocha.
  */
 
-var chai = chai || require("chai");
-var endianness =  endianness || require("../test/loader.js");
-var assert = chai.assert;
+/**
+ * @fileoverview Tests for the endianness function.
+ * @see https://github.com/rochars/endianness
+ */
+
+var endianness =  endianness || require("./loader.js");
+var assert = assert || require('assert');
 
 describe('little endiand and big endian swap', function() {
     
@@ -14,10 +16,11 @@ describe('little endiand and big endian swap', function() {
 
     // Errors
     it("should throw an error if input do not have enought bytes", function () {
-        chai.expect(function() {
+        var f = function() {
             values = [1, 2, 3, 4,  5, 6, 7, 8,   9, 10];
             endianness(values, 4);
-        }).to.throw("Bad buffer length.");
+        }
+        assert.throws(f, /Bad buffer length./);
     });
 
     // 16-bit
@@ -164,17 +167,21 @@ describe('little endiand and big endian swap', function() {
     
     // 56-bit
     it('should swap 1 56-bit value', function() {
-        values = new Uint8Array([24, 45, 68, 84, 251, 33, 9]);
-        endianness(values, 7);
-        assert.deepEqual(values,
-            new Uint8Array([9, 33, 251, 84, 68, 45, 24]));
+        if (typeof Uint8Array !== 'undefined') {
+            values = new Uint8Array([24, 45, 68, 84, 251, 33, 9]);
+            endianness(values, 7);
+            assert.deepEqual(values,
+                new Uint8Array([9, 33, 251, 84, 68, 45, 24]));
+        }
     });
     it('should swap 2 56-bit values', function() {
-        values = new Uint8Array(
-            [24, 45, 68, 84, 251, 33, 9, 24, 45, 68, 84, 251, 33, 23]);
-        endianness(values, 7);
-        assert.deepEqual(values,
-            new Uint8Array([9, 33, 251, 84, 68, 45, 24, 23, 33, 251, 84, 68, 45, 24]));
+        if (typeof Uint8Array !== 'undefined') {
+            values = new Uint8Array(
+                [24, 45, 68, 84, 251, 33, 9, 24, 45, 68, 84, 251, 33, 23]);
+            endianness(values, 7);
+            assert.deepEqual(values,
+                new Uint8Array([9, 33, 251, 84, 68, 45, 24, 23, 33, 251, 84, 68, 45, 24]));
+        }
     });
 
     // 64-bit
