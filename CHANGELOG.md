@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## version 8.0.0 (2018-07-27)
+## version 8.0.0 (2018-07-29)
 - compatible with IE8+
 - index.js renamed to *endianness.js*. 
 - *endianness.js* and *endianness.umd.js* are the only dist files.
