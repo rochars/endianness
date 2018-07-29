@@ -28,11 +28,7 @@
   "bugs": {
     "url": "https://github.com/rochars/endianness/issues"
   },
-  "directories": {
-    "externs": "externs"
-  },
   "files": [
-    "externs",
     "endianness.js",
     "endianness.d.ts",
     "endianness.umd.js",
