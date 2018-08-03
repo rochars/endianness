@@ -17,7 +17,6 @@ const footer =
 "typeof module !== 'undefined' ? module.exports = endianness :" +
 "typeof define === 'function' && define.amd ? define(['exports'], endianness) :" +
 "typeof global !== 'undefined' ? global.endianness = endianness : null; " +
-//"typeof module !== 'undefined' ? typeof module.exports !== 'undefined' ? module.exports.default = endianness : null : null;" +
 "return endianness;})();";
 
 export default [

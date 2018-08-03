@@ -12,6 +12,7 @@ Swap endianness in byte arrays. The input buffer is modified in place.
 - **Use it out of the box in Node.js**
 - **Use it out of the box with [TypeScript](https://www.typescriptlang.org/)**
 - **Use it with any byte offset**
+- **Swap entire buffers**
 - **Swap only a slice of the buffer**
 - **Less than 1kb minified!**
 

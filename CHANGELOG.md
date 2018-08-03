@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## version 8.0.1 (2018-08-03)
+## version 8.0.2 (2018-08-03)
 - compatible with IE6+
 - iife UMD
 
