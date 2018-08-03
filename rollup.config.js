@@ -7,17 +7,17 @@
  * @see https://github.com/rochars/endianness
  */
 
-import closure from 'rollup-plugin-closure-compiler-js';
-import {unexport} from 'rollup-plugin-bundleutils';
+import babel from 'rollup-plugin-babel';
 
-// GCC UMD footer, compatible with old browsers, Node and AMD loaders
-const footer = 
-"var exports = exports || {}; exports = endianness; exports.endianness = endianness; " +
-"exports['default'] = endianness;" +
-"typeof module !== 'undefined' ? module.exports = endianness :" +
-"typeof define === 'function' && define.amd ? define(['exports'], endianness) :" +
-"typeof global !== 'undefined' ? global.endianness = endianness : null; " +
-"return endianness;})();";
+const head = "(function (global, factory) {" +
+  "typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :" +
+  "typeof define === 'function' && define.amd ? define(factory) :" +
+  "(global.endianness = factory());" +
+"}(this, (function () { 'use strict'";
+const foot =   "var module = module || {};"+
+  " module.exports = endianness;" +
+  " module.exports['default'] = endianness; "+
+  " return endianness;})));"
 
 export default [
   {
@@ -25,18 +25,14 @@ export default [
     output: [
       {
         file: 'endianness.umd.js',
-        format: 'esm',
+        name: 'endianness',
+        format: 'iife',
+        banner: head,
+        footer: foot
       }
     ],
     plugins: [
-      unexport(),
-      closure({
-        languageIn: 'ECMASCRIPT6',
-        languageOut: 'ECMASCRIPT3',
-        compilationLevel: 'SIMPLE',
-        warningLevel: 'VERBOSE',
-        outputWrapper: ';var endianness=(function(exports){' + '%output%' + footer
-      })
+      babel()
     ]
   }
 ];

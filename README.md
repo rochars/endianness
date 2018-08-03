@@ -14,7 +14,6 @@ Swap endianness in byte arrays. The input buffer is modified in place.
 - **Use it with any byte offset**
 - **Swap entire buffers**
 - **Swap only a slice of the buffer**
-- **Less than 1kb minified!**
 
 ## Install
 ```

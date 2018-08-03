@@ -7,7 +7,7 @@
  * @see https://github.com/rochars/endianness
  */
 
-import endianness from '../../../endianness.js'
+import endianness from '../../../endianness.umd.js'
 
 // with arrays
 let buff = [1,2,3,4];

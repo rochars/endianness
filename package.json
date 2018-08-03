@@ -47,18 +47,19 @@
     "coverage": "nyc report --reporter=lcov > coverage.lcov && codecov"
   },
   "devDependencies": {
-    "codecov": "^3.0.2",
+    "babel-core": "^6.26.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-es2015": "^6.24.1",
+    "codecov": "^3.0.4",
     "docdash": "^0.4.0",
-    "esm": "^3.0.51",
-    "google-closure-compiler": "^20180610.0.2",
+    "esm": "^3.0.74",
     "jsdoc": "^3.5.5",
-    "jshint": "^2.9.5",
+    "jshint": "^2.9.6",
     "mocha": "^5.2.0",
     "mocha-lcov-reporter": "^1.3.0",
     "nyc": "^12.0.2",
     "rollup": "^0.61.2",
-    "rollup-plugin-bundleutils": "^1.0.6",
-    "rollup-plugin-closure-compiler-js": "^1.0.6",
+    "rollup-plugin-babel": "^3.0.7",
     "typescript": "^2.9.2"
   },
   "dependencies": {}
