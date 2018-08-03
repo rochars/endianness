@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>endianness: browser tests</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+	<div class="container">
+		<h1><a href="https://github.com/rochars/endianness">endianness</a></h1>
+		<p>Copyright (c) 2017-2018 Rafael da Silva Rocha.<br>
+			<a href="https://github.com/rochars/endianness">https://github.com/rochars/endianness</a></p>
+	</div>
+
+	<!-- Load browser dist, load types -->
+	<script src="../../endianness.umd.js"></script>
+
+	<!-- Run the tests -->
+	<script>
+	    values = [1, 0, 1, 0];
+        endianness(values, 2);
+        if (values[0] !== 0 ||
+        	values[1] !== 1 ||
+        	values[2] !== 0 ||
+        	values[3] !== 1) {
+        	throw new Error('ERROR!');
+        } else {
+        	document.write('OK!');
+        }
+	</script>
+
+</body>
+</html>

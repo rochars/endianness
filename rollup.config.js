@@ -10,16 +10,15 @@
 import closure from 'rollup-plugin-closure-compiler-js';
 import {unexport} from 'rollup-plugin-bundleutils';
 
-const license = '/*!\n' +
-' * https://github.com/rochars/endianness\n' +
-' * Copyright (c) 2017-2018 Rafael da Silva Rocha. MIT License.\n' +
-' */\n';
-
 // GCC UMD footer, compatible with old browsers, Node and AMD loaders
 const footer = 
-"typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = endianness :" +
+"var exports = exports || {}; exports = endianness; exports.endianness = endianness; " +
+"exports['default'] = endianness;" +
+"typeof module !== 'undefined' ? module.exports = endianness :" +
 "typeof define === 'function' && define.amd ? define(['exports'], endianness) :" +
-"typeof global !== 'undefined' ? global.endianness = endianness : null;";
+"typeof global !== 'undefined' ? global.endianness = endianness : null; " +
+//"typeof module !== 'undefined' ? typeof module.exports !== 'undefined' ? module.exports.default = endianness : null : null;" +
+"return endianness;})();";
 
 export default [
   {
@@ -37,7 +36,7 @@ export default [
         languageOut: 'ECMASCRIPT3',
         compilationLevel: 'SIMPLE',
         warningLevel: 'VERBOSE',
-        outputWrapper: license + '%output%' + footer
+        outputWrapper: ';var endianness=(function(exports){' + '%output%' + footer
       })
     ]
   }

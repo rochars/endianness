@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## version 8.0.1 (2018-08-03)
+- compatible with IE6+
+- iife UMD
+
 ## version 8.0.0 (2018-07-29)
 - compatible with IE8+
 - index.js renamed to *endianness.js*. 

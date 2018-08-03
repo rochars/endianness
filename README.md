@@ -7,10 +7,13 @@ https://github.com/rochars/endianness
 
 Swap endianness in byte arrays. The input buffer is modified in place.
 
-- Use it everywhere, server and browser
-- Use it with any byte offset
-- Swap only parts of the buffer
-- Compatible with IE8+
+- **MIT licensed**
+- **Compatible with IE6+ and browsers that support ES3/ES5/ES6+**
+- **Use it out of the box in Node.js**
+- **Use it out of the box with [TypeScript](https://www.typescriptlang.org/)**
+- **Use it with any byte offset**
+- **Swap only a slice of the buffer**
+- **Less than 1kb minified!**
 
 ## Install
 ```
@@ -18,24 +21,6 @@ npm install endianness
 ```
 
 ## Use
-
-### Node
-Require or import **endianness** from **endianness**:
-```javascript
-import endianness from 'endianness';
-
-// Swap endianness of one 64-bit value:
-let bytes = [64, 9, 33, 251, 84, 68, 45, 24];
-endianness(bytes, 8);
-```
-
-```javascript
-const endianness = require("endianness");
-
-// Swap endianness of two 24-bit values:
-let bytes = new Uint8Array(["00", "00", "80", "ff", "ff", "7f"]);
-endianness(bytes, 3),
-```
 
 ### Browser
 Use **endianness.umd.js**:
@@ -56,6 +41,30 @@ Or get it from the [jsDelivr](https://www.jsdelivr.com/npm/endianness) CDN:
 Or get it from [unpkg](https://www.unpkg.com/endianness):
 ```html
 <script src="https://unpkg.com/endianness"></script>
+```
+
+#### Browser compatibility
+**endianness.umd.js** is transpiled to ES3 and compatible with IE6+. Should work in all modern browsers that support ES3/ES5/ES6+.
+
+Cross-browser tests powered by  
+<a href="https://www.browserstack.com"><img src="https://rochars.github.io/endianness/docs/Browserstack-logo@2x.png" width="150px"/></a>
+
+### Node
+Require or import **endianness** from **endianness**:
+```javascript
+import endianness from 'endianness';
+
+// Swap endianness of one 64-bit value:
+let bytes = [64, 9, 33, 251, 84, 68, 45, 24];
+endianness(bytes, 8);
+```
+
+```javascript
+const endianness = require("endianness");
+
+// Swap endianness of two 24-bit values:
+let bytes = new Uint8Array(["00", "00", "80", "ff", "ff", "7f"]);
+endianness(bytes, 3),
 ```
 
 ## API
