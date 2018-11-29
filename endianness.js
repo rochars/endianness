@@ -38,7 +38,7 @@
  * @throws {Error} If the buffer length is not valid.
  */
 export default function endianness(bytes, offset, start=0, end=bytes.length) {
-  if (end % offset) {
+  if ((end - start) % offset) {
     throw new Error("Bad buffer length.");
   }
   for (let index = start; index < end; index += offset) {
